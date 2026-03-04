@@ -7,19 +7,15 @@ import { SalesSections } from './components/SalesSections'
 import { Footer } from './components/Footer'
 import { ContactScreen } from './screens/Contact'
 import { baseContent, languages } from './data/content'
-import { useAutoTranslate } from './hooks/useAutoTranslate'
 import { FloatingActions } from './components/FloatingActions'
 
 const getInitialLang = () => {
   if (typeof navigator === 'undefined') return 'pt';
   const browserLang = (navigator.language || 'pt').toLowerCase();
-  // Find the most specific match first
   const exactMatch = languages.find(l => browserLang === l.code.toLowerCase());
   if (exactMatch) return exactMatch.code;
-  // Then check for partial matches (e.g., 'en-US' should match 'en')
   const partialMatch = languages.find(l => browserLang.startsWith(l.code.toLowerCase()));
   if (partialMatch) return partialMatch.code;
-  // Default to Portuguese
   return 'pt';
 };
 
@@ -36,14 +32,15 @@ const writeStorage = (key, value) => {
   try {
     localStorage.setItem(key, JSON.stringify(value))
   } catch {
-    // ignore storage failures (Safari private mode, etc.)
   }
 }
 
 export default function App() {
   const [language, setLanguage] = useState(() => readStorage('language', getInitialLang()))
   const [showBanner, setShowBanner] = useState(() => readStorage('showBanner', true))
-  const { content, loading } = useAutoTranslate(baseContent, language)
+
+  // Directly using baseContent now that auto-translation is removed
+  const content = baseContent;
 
   useEffect(() => {
     document.documentElement.lang = language
@@ -67,7 +64,6 @@ export default function App() {
           labels={navLabels}
           languages={languages}
           currentLanguage={language}
-          loading={loading}
           onSelectLanguage={setLanguage}
         />
       </div>
@@ -76,7 +72,6 @@ export default function App() {
         <HomeScreen
           slides={content.hero.slides}
           ctaLink={content.hero.ctaLink}
-          loading={loading}
           offer={content.limitedOffer}
         />
         <div className="space-y-12 md:space-y-24">

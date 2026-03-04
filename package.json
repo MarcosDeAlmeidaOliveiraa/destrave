@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://2023154.github.io/Mundo-Online-World/",
   "scripts": {
     "start": "vite",
     "dev": "vite",
