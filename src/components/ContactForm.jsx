@@ -64,7 +64,7 @@ export function ContactForm({ labels }) {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="mt-2 inline-flex items-center justify-center rounded-full border-2 border-slate-900 bg-slate-900 px-8 py-4 text-base font-black uppercase text-white shadow-md transition-all duration-300 hover:bg-white hover:text-slate-900 disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-2 inline-flex items-center justify-center rounded-full border-2 border-brand-primary bg-brand-primary px-8 py-4 text-base font-black uppercase text-white shadow-md transition-all duration-300 hover:bg-white hover:text-brand-primary disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === 'loading' ? (formLabels.loading || 'Sending...') : formLabels.button}
       </button>

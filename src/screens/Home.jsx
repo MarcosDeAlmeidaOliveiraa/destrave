@@ -9,18 +9,18 @@ export function HomeScreen({ slides, ctaLink, loading }) {
 
   return (
     <section id="home" className="relative bg-white text-zinc-950">
-      {/* Top Banner Image */}
-      <div className="relative h-[25vh] min-h-[180px] max-h-[400px] w-full overflow-hidden md:h-[50vh] md:max-h-[600px]">
+      {/* Top Banner Image - Ajustado para visibilidade total */}
+      <div className="relative w-full bg-white overflow-hidden">
         <img
           src={coverImage}
           alt="Main Cover"
-          className="h-full w-full object-cover object-center"
+          className="w-full h-auto block mx-auto max-h-[85vh] object-contain"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent pointer-events-none"></div>
       </div>
 
-      {/* Main Content Card - Positioned Below the Image */}
-      <div className="relative z-10 -mt-10 px-4 md:-mt-32 md:px-8">
+      {/* Main Content Card - Posicionado logo abaixo com sobreposição mínima */}
+      <div className="relative z-10 -mt-4 px-4 md:-mt-12 md:px-8">
         <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 mx-auto max-w-4xl rounded-[2rem] border border-slate-100 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.12)] md:rounded-[3.5rem] md:p-16">
           <div className="text-center">
             <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-primary md:mb-8 md:px-6 md:py-2 md:text-xs">
@@ -40,8 +40,10 @@ export function HomeScreen({ slides, ctaLink, loading }) {
 
             <div className="mt-8 flex justify-center md:mt-12">
               <a 
-                href={primarySlide.ctaLink}
-                className="inline-flex h-12 items-center justify-center rounded-full bg-zinc-950 px-8 text-sm font-black uppercase tracking-widest text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-brand-primary md:h-16 md:px-12 md:text-base"
+                href={primarySlide.checkoutUrl || primarySlide.ctaLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-12 items-center justify-center rounded-full bg-brand-primary px-8 text-sm font-black uppercase tracking-widest text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-brand-dark md:h-16 md:px-12 md:text-base"
               >
                 {primarySlide.cta || 'Começar Agora'}
               </a>

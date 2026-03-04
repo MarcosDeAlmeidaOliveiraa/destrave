@@ -72,9 +72,9 @@ const FeatureGrid = ({ items }) => (
 const Testimonials = ({ items }) => (
   <div className="grid gap-6 md:grid-cols-2">
     {items.map((item, index) => (
-      <blockquote key={index} className="rounded-2xl border border-white/10 bg-black/30 p-6 text-sm text-slate-200">
+      <blockquote key={index} className="rounded-2xl border border-brand-accent/20 bg-brand-primary/5 p-6 text-sm text-brand-dark">
         <p className="italic">"{item.quote}"</p>
-  <footer className="mt-4 text-right font-semibold text-move-green">- {item.author}</footer>
+  <footer className="mt-4 text-right font-semibold text-brand-primary">- {item.author}</footer>
       </blockquote>
     ))}
   </div>
@@ -136,14 +136,14 @@ export function SalesSections({ sales }) {
   return (
     <div id="details" className="mx-auto max-w-5xl space-y-12 px-4 md:space-y-24">
       {templates ? (
-        <section className="rounded-[2.5rem] border border-pink-500/20 bg-gradient-to-br from-indigo-600 via-pink-600 to-orange-500 p-8 text-center shadow-2xl text-white md:p-16">
+        <section className="rounded-[2.5rem] border border-brand-primary/20 bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-dark p-8 text-center shadow-2xl text-white md:p-16">
           <h2 className="text-2xl font-bold sm:text-3xl md:text-5xl">{templates.title}</h2>
           <p className="mt-4 text-base opacity-90 sm:text-lg md:text-xl">{templates.text}</p>
           <a
             href={templates.buttonHref}
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-black uppercase text-pink-600 shadow-md transition-all duration-300 hover:scale-105 hover:bg-zinc-50 md:px-12 md:py-6 md:text-base"
+            className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-black uppercase text-brand-primary shadow-md transition-all duration-300 hover:scale-105 hover:bg-zinc-50 md:px-12 md:py-6 md:text-base"
           >
             {templates.buttonLabel}
           </a>

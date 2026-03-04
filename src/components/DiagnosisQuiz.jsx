@@ -135,14 +135,14 @@ export function DiagnosisQuiz({ checkoutUrl }) {
   return (
     <div className="mx-auto max-w-xl overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-2xl">
       {/* Header */}
-      <div className="flex items-center gap-3 bg-zinc-950 p-4 text-white">
+      <div className="flex items-center gap-3 bg-brand-dark p-4 text-white">
         <div className="relative">
-          <img src={daniela} alt="Daniela" className="h-10 w-10 rounded-full border-2 border-brand-primary object-cover" />
-          <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-zinc-950 bg-green-500"></div>
+          <img src={daniela} alt="Daniela" className="h-10 w-10 rounded-full border-2 border-brand-accent object-cover" />
+          <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-brand-dark bg-green-500"></div>
         </div>
         <div>
-          <h3 className="text-sm font-bold">Daniela Ferrenha</h3>
-          <p className="text-[10px] opacity-70">Online agora • Diagnóstico</p>
+          <h3 className="text-sm font-bold text-white">Daniela Ferrenha</h3>
+          <p className="text-[10px] text-brand-accent">Online agora • Diagnóstico</p>
         </div>
       </div>
 

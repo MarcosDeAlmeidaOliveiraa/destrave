@@ -83,7 +83,7 @@ export function HeroSlider({ slides }) {
                     )}
                     <a
                       href={slide.ctaLink ?? '#courses'}
-                      className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-900 bg-slate-900 px-6 py-3 text-sm font-black uppercase text-white shadow-md transition-all duration-300 hover:bg-white hover:text-slate-900 sm:px-8 sm:py-4 sm:text-base"
+                      className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-primary bg-brand-primary px-6 py-3 text-sm font-black uppercase text-white shadow-md transition-all duration-300 hover:bg-white hover:text-brand-primary sm:px-8 sm:py-4 sm:text-base"
                     >
                       {slide.cta}
                     </a>
