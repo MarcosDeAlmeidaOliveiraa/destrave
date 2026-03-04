@@ -11,15 +11,15 @@ export function HeroSlider({ slides }) {
           return (
             <section
               key={slide.id ?? (slide.title || slide.title1)}
-              className="relative min-w-[85%] snap-center rounded-[2.5rem] border border-slate-200 bg-white p-5 text-zinc-950 shadow-xl transition-transform duration-300 ease-out hover:-translate-y-1 sm:min-w-[70%] md:min-w-[80%] md:p-8 lg:min-w-[100%]"
+              className="relative min-w-[90%] snap-center rounded-[2rem] border border-slate-200 bg-white p-5 text-zinc-950 shadow-xl transition-transform duration-300 ease-out hover:-translate-y-1 sm:min-w-[80%] md:min-w-[85%] md:p-8 lg:min-w-[100%] lg:rounded-[2.5rem]"
             >
               <div className="grid gap-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-10">
-                <div className="relative min-h-[350px] overflow-hidden rounded-3xl border border-slate-100 bg-slate-50 sm:min-h-[450px] md:h-[600px]">
+                <div className="relative min-h-[300px] overflow-hidden rounded-3xl border border-slate-100 bg-slate-50 sm:min-h-[400px] md:h-full lg:h-[600px]">
                   {slide.image && (
                     <img
                       src={slide.image}
                       alt={slide.imageAlt ?? (slide.title || slide.title1)}
-                      className="h-full w-full object-contain object-center"
+                      className="h-full w-full object-contain object-center p-2"
                       loading="lazy"
                     />
                   )}
@@ -33,7 +33,7 @@ export function HeroSlider({ slides }) {
                 <div className="flex flex-col gap-3 md:gap-4">
                   {slide.tagline && <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-brand-primary md:text-xs">{slide.tagline}</span>}
                   <div>
-                    <h1 className="text-2xl font-extrabold text-zinc-950 sm:text-3xl md:text-5xl leading-tight">
+                    <h1 className="text-xl font-extrabold text-zinc-950 sm:text-2xl md:text-4xl lg:text-5xl leading-tight">
                       {slide.title || (
                         <>
                           <span className="block">{slide.title1}</span>
@@ -41,7 +41,7 @@ export function HeroSlider({ slides }) {
                         </>
                       )}
                     </h1>
-                    {slide.description && <p className="mt-2 text-balance text-sm text-zinc-700 md:mt-3 md:text-base">{slide.description}</p>}
+                    {slide.description && <p className="mt-2 text-balance text-sm text-zinc-700 sm:text-base md:mt-3 lg:text-lg">{slide.description}</p>}
                   </div>
 
                   {Array.isArray(slide.features) && slide.features.length > 0 && (
@@ -65,13 +65,13 @@ export function HeroSlider({ slides }) {
                     {displayPrice && (
                       <div className="flex flex-col">
                         {displayOldPrice && (
-                          <span className="text-lg font-extrabold text-red-600 line-through decoration-red-600/40 md:text-xl">
+                          <span className="text-base font-extrabold text-red-600 line-through decoration-red-600/40 md:text-lg lg:text-xl">
                             {displayOldPrice}
                           </span>
                         )}
                         <div className="flex items-baseline gap-2">
                           <span
-                            className="text-3xl font-black text-brand-primary sm:text-4xl md:text-5xl"
+                            className="text-2xl font-black text-brand-primary sm:text-3xl md:text-4xl lg:text-5xl"
                             style={{
                               letterSpacing: '-0.02em',
                             }}

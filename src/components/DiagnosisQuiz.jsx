@@ -133,30 +133,30 @@ export function DiagnosisQuiz({ checkoutUrl }) {
   };
 
   return (
-    <div className="mx-auto max-w-xl overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-2xl">
+    <div className="mx-auto w-full overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-2xl md:rounded-[2.5rem] lg:max-w-xl">
       {/* Header */}
-      <div className="flex items-center gap-3 bg-brand-dark p-4 text-white">
+      <div className="flex items-center gap-3 bg-brand-dark p-4 text-white sm:p-5">
         <div className="relative">
-          <img src={daniela} alt="Daniela" className="h-10 w-10 rounded-full border-2 border-brand-accent object-cover" />
+          <img src={daniela} alt="Daniela" className="h-10 w-10 rounded-full border-2 border-brand-accent object-cover sm:h-12 sm:w-12" />
           <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-brand-dark bg-green-500"></div>
         </div>
         <div>
-          <h3 className="text-sm font-bold text-white">Daniela Ferrenha</h3>
-          <p className="text-[10px] text-brand-accent">Online agora • Diagnóstico</p>
+          <h3 className="text-sm font-bold text-white sm:text-base">Daniela Ferrenha</h3>
+          <p className="text-[10px] text-brand-accent sm:text-xs">Online agora • Diagnóstico</p>
         </div>
       </div>
 
       {/* Chat Area */}
       <div 
         ref={scrollRef}
-        className="h-[500px] overflow-y-auto bg-slate-50 p-4 scrollbar-hide flex flex-col gap-3"
+        className="h-[400px] overflow-y-auto bg-slate-50 p-4 scrollbar-hide flex flex-col gap-3 sm:h-[500px] sm:p-6"
       >
         {messages.map((m) => (
           <div 
             key={m.id}
             className={`flex ${m.sender === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}
           >
-            <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm shadow-sm ${
+            <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm shadow-sm sm:px-5 sm:py-4 sm:text-base ${
               m.sender === 'user' 
                 ? 'bg-brand-primary text-white rounded-tr-none' 
                 : 'bg-white text-zinc-800 rounded-tl-none border border-slate-100'
@@ -178,34 +178,34 @@ export function DiagnosisQuiz({ checkoutUrl }) {
 
       {/* Input Area */}
       {step < quizSteps.length - 1 ? (
-        <div className="border-t border-slate-100 p-4 bg-white flex gap-2">
+        <div className="border-t border-slate-100 p-4 bg-white flex gap-2 sm:p-6">
           <input
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             placeholder={step === 0 ? "Digite seu nome..." : "Responda com 1, 2, 3 ou 4..."}
-            className="flex-1 bg-slate-100 rounded-full px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
+            className="flex-1 bg-slate-100 rounded-full px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/20 sm:text-base sm:py-4"
           />
           <button 
             onClick={handleSend}
             disabled={!inputValue.trim()}
-            className="h-11 w-11 flex items-center justify-center rounded-full bg-brand-primary text-white shadow-lg transition-transform active:scale-90 disabled:opacity-50"
+            className="h-11 w-11 flex items-center justify-center rounded-full bg-brand-primary text-white shadow-lg transition-transform active:scale-90 disabled:opacity-50 sm:h-14 sm:w-14"
           >
-            <FiSend />
+            <FiSend className="text-lg" />
           </button>
         </div>
       ) : (
-        <div className="p-6 bg-brand-primary text-center">
+        <div className="p-6 bg-brand-primary text-center sm:p-10">
             <a 
               href={checkoutUrl || "#checkout"} 
               target={checkoutUrl ? "_blank" : "_self"}
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-brand-primary font-black px-8 py-4 rounded-full shadow-xl uppercase tracking-widest hover:scale-105 transition-transform"
+              className="inline-flex items-center gap-2 bg-white text-brand-primary font-black px-8 py-4 rounded-full shadow-xl uppercase tracking-widest hover:scale-105 transition-transform sm:px-12 sm:py-5 sm:text-lg"
             >
               <FiCheckCircle /> Quero o Destrave Agora
             </a>
-            <p className="mt-3 text-[10px] text-white/70 font-bold uppercase tracking-widest">
+            <p className="mt-4 text-[10px] text-white/70 font-bold uppercase tracking-widest sm:text-xs sm:mt-6">
               Made with Love & Structure
             </p>
         </div>

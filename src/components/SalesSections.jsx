@@ -28,12 +28,12 @@ const iconMap = {
 }
 
 const Section = ({ id, title, eyebrow, children }) => (
-  <section id={id} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:rounded-3xl md:p-10">
+  <section id={id} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 md:rounded-3xl md:p-10 lg:p-12">
     {eyebrow ? (
   <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-brand-primary md:text-xs">{eyebrow}</p>
     ) : null}
-  <h2 className="text-2xl font-bold text-slate-900 md:text-4xl">{title}</h2>
-    <div className="mt-6 space-y-4 text-sm text-slate-600 md:text-lg">{children}</div>
+  <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">{title}</h2>
+    <div className="mt-6 space-y-4 text-sm text-slate-600 sm:text-base md:text-lg">{children}</div>
   </section>
 )
 
@@ -57,26 +57,15 @@ const FeatureGrid = ({ items }) => (
     {items.map((item) => {
       const Icon = iconMap[item.icon ?? 'check'] ?? FiCheckCircle
       return (
-        <div key={item.title} className="flex flex-col rounded-2xl border border-slate-100 bg-slate-50 p-5 md:p-6">
+        <div key={item.title} className="flex flex-col rounded-2xl border border-slate-100 bg-slate-50 p-5 md:p-6 lg:p-8">
           <div className="flex items-center gap-3 text-brand-primary">
             <Icon className="text-lg md:text-xl" />
-            <h3 className="text-base font-bold text-slate-900 md:text-lg">{item.title}</h3>
+            <h3 className="text-base font-bold text-slate-900 sm:text-lg md:text-xl">{item.title}</h3>
           </div>
-          <p className="mt-3 text-xs text-slate-600 md:text-sm">{item.description}</p>
+          <p className="mt-3 text-xs text-slate-600 sm:text-sm md:text-base">{item.description}</p>
         </div>
       )
     })}
-  </div>
-)
-
-const Testimonials = ({ items }) => (
-  <div className="grid gap-6 md:grid-cols-2">
-    {items.map((item, index) => (
-      <blockquote key={index} className="rounded-2xl border border-brand-accent/20 bg-brand-primary/5 p-6 text-sm text-brand-dark">
-        <p className="italic">"{item.quote}"</p>
-  <footer className="mt-4 text-right font-semibold text-brand-primary">- {item.author}</footer>
-      </blockquote>
-    ))}
   </div>
 )
 
@@ -84,11 +73,11 @@ const FAQList = ({ items }) => (
   <div className="space-y-3">
     {items.map((item, index) => (
       <details key={index} className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:border-brand-primary">
-        <summary className="flex cursor-pointer items-center justify-between text-left text-base font-bold text-slate-900 list-none">
+        <summary className="flex cursor-pointer items-center justify-between text-left text-base font-bold text-slate-900 list-none sm:text-lg">
           {item.question}
           <span className="text-brand-primary transition-transform duration-300 group-open:rotate-45 font-black text-xl">+</span>
         </summary>
-        <div className="mt-4 border-t border-slate-50 pt-4 text-sm font-medium leading-relaxed text-slate-600">
+        <div className="mt-4 border-t border-slate-50 pt-4 text-sm font-medium leading-relaxed text-slate-600 sm:text-base">
           {item.answer}
         </div>
       </details>
@@ -97,16 +86,16 @@ const FAQList = ({ items }) => (
 )
 
 const CtaCard = ({ id, title, text, buttonLabel, buttonHref = '#checkout', note }) => (
-  <section id={id} className="rounded-[2.5rem] border border-white/10 bg-premium-gradient p-8 text-center shadow-2xl text-white md:p-16">
-    <h2 className="text-2xl font-bold sm:text-3xl md:text-5xl">{title}</h2>
-    <p className="mt-4 text-base opacity-90 sm:text-lg md:text-xl">{text}</p>
+  <section id={id} className="rounded-[2.5rem] border border-white/10 bg-premium-gradient p-8 text-center shadow-2xl text-white sm:p-12 md:p-16 lg:p-20">
+    <h2 className="text-2xl font-bold sm:text-3xl md:text-5xl lg:text-6xl">{title}</h2>
+    <p className="mt-4 text-base opacity-90 sm:text-lg md:text-xl lg:text-2xl">{text}</p>
     <a
       href={buttonHref}
-      className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-black uppercase text-brand-primary shadow-xl transition-all duration-300 hover:scale-105 hover:bg-slate-50 md:px-12 md:py-6 md:text-base"
+      className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-black uppercase text-brand-primary shadow-xl transition-all duration-300 hover:scale-105 hover:bg-slate-50 sm:px-10 sm:py-5 md:px-12 md:py-6 md:text-base"
     >
       {buttonLabel}
     </a>
-    {note ? <p className="mt-6 text-[10px] font-bold uppercase tracking-widest text-white/70 md:text-xs">{note}</p> : null}
+    {note ? <p className="mt-6 text-[10px] font-bold uppercase tracking-widest text-white/70 sm:text-xs">{note}</p> : null}
   </section>
 )
 
@@ -134,16 +123,16 @@ export function SalesSections({ sales }) {
   } = sales
 
   return (
-    <div id="details" className="mx-auto max-w-5xl space-y-12 px-4 md:space-y-24">
+    <div id="details" className="mx-auto max-w-5xl space-y-12 px-4 sm:px-6 md:space-y-24 md:px-8">
       {templates ? (
-        <section className="rounded-[2.5rem] border border-brand-primary/20 bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-dark p-8 text-center shadow-2xl text-white md:p-16">
-          <h2 className="text-2xl font-bold sm:text-3xl md:text-5xl">{templates.title}</h2>
-          <p className="mt-4 text-base opacity-90 sm:text-lg md:text-xl">{templates.text}</p>
+        <section className="rounded-[2.5rem] border border-brand-primary/20 bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-dark p-8 text-center shadow-2xl text-white sm:p-12 md:p-16 lg:p-20">
+          <h2 className="text-2xl font-bold sm:text-3xl md:text-5xl lg:text-6xl">{templates.title}</h2>
+          <p className="mt-4 text-base opacity-90 sm:text-lg md:text-xl lg:text-2xl">{templates.text}</p>
           <a
             href={templates.buttonHref}
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-black uppercase text-brand-primary shadow-md transition-all duration-300 hover:scale-105 hover:bg-zinc-50 md:px-12 md:py-6 md:text-base"
+            className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-black uppercase text-brand-primary shadow-md transition-all duration-300 hover:scale-105 hover:bg-zinc-50 sm:px-10 sm:py-5 md:px-12 md:py-6 md:text-base"
           >
             {templates.buttonLabel}
           </a>
@@ -271,7 +260,7 @@ export function SalesSections({ sales }) {
           <p>
             {support.description}{' '}
             {support.email ? (
-              <a href={`mailto:${support.email}`} className="text-move-green underline">
+              <a href={`mailto:${support.email}`} className="text-brand-primary underline">
                 {support.email}
               </a>
             ) : null}
