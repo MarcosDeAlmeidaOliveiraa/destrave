@@ -1,0 +1,39 @@
+{
+  "name": "Mundo-Online-World",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "homepage": "https://2023154.github.io/Mundo-Online-World/",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "mail-server": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.10",
+    "react": "^18.3.1",
+    "react-country-flag": "^3.1.0",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.21",
+    "gh-pages": "^5.0.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.10",
+    "vite": "^5.4.0"
+  },
+  "description": "",
+  "main": "postcss.config.js",
+  "author": "",
+  "license": "ISC"
+}
