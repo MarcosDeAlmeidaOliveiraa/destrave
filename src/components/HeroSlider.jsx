@@ -10,16 +10,16 @@ export function HeroSlider({ slides }) {
 
           return (
             <section
-              key={slide.id ?? slide.title}
+              key={slide.id ?? (slide.title || slide.title1)}
               className="relative min-w-[85%] snap-center rounded-[2.5rem] border border-slate-200 bg-white p-5 text-zinc-950 shadow-xl transition-transform duration-300 ease-out hover:-translate-y-1 sm:min-w-[70%] md:min-w-[80%] md:p-8 lg:min-w-[100%]"
             >
-              <div className="grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-10">
-                <div className="relative h-48 overflow-hidden rounded-3xl border border-slate-100 bg-slate-100 sm:h-64 md:h-full">
+              <div className="grid gap-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-10">
+                <div className="relative min-h-[350px] overflow-hidden rounded-3xl border border-slate-100 bg-slate-50 sm:min-h-[450px] md:h-[600px]">
                   {slide.image && (
                     <img
                       src={slide.image}
-                      alt={slide.imageAlt ?? slide.title}
-                      className="h-full w-full object-cover object-center opacity-80"
+                      alt={slide.imageAlt ?? (slide.title || slide.title1)}
+                      className="h-full w-full object-contain object-center"
                       loading="lazy"
                     />
                   )}
@@ -33,7 +33,14 @@ export function HeroSlider({ slides }) {
                 <div className="flex flex-col gap-3 md:gap-4">
                   {slide.tagline && <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-brand-primary md:text-xs">{slide.tagline}</span>}
                   <div>
-                    <h1 className="text-2xl font-extrabold text-zinc-950 sm:text-3xl md:text-4xl">{slide.title}</h1>
+                    <h1 className="text-2xl font-extrabold text-zinc-950 sm:text-3xl md:text-5xl leading-tight">
+                      {slide.title || (
+                        <>
+                          <span className="block">{slide.title1}</span>
+                          <span className="block text-brand-primary">{slide.title2}</span>
+                        </>
+                      )}
+                    </h1>
                     {slide.description && <p className="mt-2 text-balance text-sm text-zinc-700 md:mt-3 md:text-base">{slide.description}</p>}
                   </div>
 
@@ -71,7 +78,6 @@ export function HeroSlider({ slides }) {
                           >
                             {displayPrice}
                           </span>
-                          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400">AGENCY</span>
                         </div>
                       </div>
                     )}

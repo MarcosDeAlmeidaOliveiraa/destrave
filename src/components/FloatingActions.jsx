@@ -10,7 +10,7 @@ export function FloatingActions() {
     },
     {
       label: 'Instagram',
-      url: 'https://www.instagram.com/mundo_online_world/',
+      url: 'https://www.instagram.com/dani_mairaferrenha/',
       icon: FaInstagram,
       color: 'bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]',
     }

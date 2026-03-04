@@ -19,7 +19,7 @@ export function Header({ labels, languages, currentLanguage, onSelectLanguage, l
         <div className="flex flex-col">
           <div className="flex items-center gap-2">
             <span className="text-2xl font-black tracking-tighter text-brand-dark sm:text-3xl lg:text-4xl">
-              Mundo<span className="text-brand-primary">Online</span>World
+              Destrave<span className="text-brand-primary">Online</span>
             </span>
           </div>
           <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-primary sm:text-xs sm:tracking-[0.3em]">{labels?.tagline}</span>

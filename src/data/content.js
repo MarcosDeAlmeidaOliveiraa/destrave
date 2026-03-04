@@ -1,6 +1,5 @@
 import card1 from '../images/card1.png'
-import card2 from '../images/card2.png'
-import card3 from '../images/card3.png'
+import daniela from '../images/daniela.png'
 
 export const languages = [
   { code: 'pt', label: 'Português', flag: 'BR' },
@@ -13,252 +12,176 @@ export const languages = [
 
 export const baseContent = {
   nav: {
-    home: 'Home',
-    brl: { home: 'Inicio'},
-    details: 'Plans',
-    faq: 'FAQ',
-    tagline: 'Expand Your Business'
+    home: 'Início',
+    details: 'O Método',
+    faq: 'Dúvidas',
+    tagline: 'Daniela Ferrenha'
   },
   hero: {
     slides: [
       {
-        id: 'FraseTitulo',
-        badge: '✨ LEADER IN DIGITAL TRANSFORMATION',
-        title1: 'Your Company in the',
-        title2: 'Digital Storefront',
-        tagline: 'High-Performance Digital Presence',
-        description: 'Gain credibility and attract new customers with a professional, fast, and optimized website. We handle all the technology so you can focus on growing.',
+        id: 'destrave-principal',
+        badge: '✨ MÉTODO EXCLUSIVO',
+        title1: 'Alinhe sua Mente e Energia para',
+        title2: 'Criar a Realidade que Você Deseja',
+        tagline: 'Daniela Ferrenha',
+        description: 'Descubra como eliminar os bloqueios invisíveis que travam sua vida e ative o poder da Lei da Atração com um passo a passo prático e validado.',
         price: {
-          main: '$99/year',
-          oldPrice: '$330',
-          brl: { main: 'R$ 599/year', oldPrice: 'R$ 1,999' },
-          note: 'Static hosting (GitHub/Render) included'
+          main: 'R$ 47,90',
+          oldPrice: 'R$ 95,80',
+          brl: { main: 'R$ 47,90', oldPrice: 'R$ 95,80' },
+          note: 'Acesso Imediato • +500 Alunas'
         },
         features: [
-          '1-Page Static Website',
-          'Custom Domain Connection',
-          '1 Minor Update per month',
-          'Up to 3 Marketing Photos Included',
-          'Direct Support (Email & WhatsApp)'
+          'Download Imediato (PDF)',
+          'Bônus: Desafio 30 Dias',
+          '7 Dias de Garantia',
+          'Acesso Vitalício'
         ],
-        cta: 'Subscribe to Basic Plan',
+        cta: 'QUERO DESTRAVAR AGORA',
         image: card1,
-        imageAlt: 'Basic Website Plan'
-      },
-      {
-        id: 'professional-plan',
-        title: 'Professional Plan',
-        tagline: 'Growth and Authority',
-        description: 'Dynamic website of up to 5 pages with a database. Perfect for businesses that need more space and SEO optimization.',
-        price: {
-          main: '$199/year',
-          oldPrice: '$660',
-          brl: { main: 'R$ 1,199/year', oldPrice: 'R$ 3,999' },
-          note: 'Database + 5GB Storage included'
-        },
-        features: [
-          'Up to 5-Page Dynamic Website',
-          'Database Integration (Supabase)',
-          'Removal of "Built By" watermark',
-          '3 Minor Updates per month',
-          // 'Google Analytics and SEO Setup'
-        ],
-        cta: 'Subscribe to Professional Plan',
-        image: card2,
-        imageAlt: 'Professional Website Plan'
-      },
-      {
-        id: 'premium-plan',
-        title: 'Premium Plan',
-        tagline: 'Complete Solution and Autonomy',
-        description: 'A complete, dynamic platform. Log into the CMS to edit your own content and accept online payments.',
-        price: {
-          main: '$499/year',
-          oldPrice: '$1000',
-          brl: { main: 'R$ 2,999/year', oldPrice: 'R$ 5,999' },
-          note: '50GB Bandwidth + 20GB Storage included'
-        },
-        features: [
-          'Client CMS Login Panel',
-          'Payment Integration (Stripe)',
-          'Unlimited Photos and Updates',
-          'Custom Domain + Analytics',
-          'VIP Support (WhatsApp and Calls)'
-        ],
-        cta: 'Subscribe to Premium Plan',
-        image: card3,
-        imageAlt: 'Premium Website Plan'
+        imageAlt: 'Capa do Livro Destrave'
       }
     ],
-    ctaLink: '#contact'
+    ctaLink: 'https://pay.kiwify.com.br/DFb06bi',
+    checkoutUrl: 'https://pay.kiwify.com.br/DFb06bi'
   },
   sales: {
     templates: {
-      title: 'Discover Our Templates',
-      text: 'Check out our Instagram for exclusive templates we can adapt for your business.',
-      buttonLabel: 'View our Templates on Instagram',
-      buttonHref: 'https://www.instagram.com/mundo_online_world/'
+      title: 'Me Siga no Instagram',
+      text: 'Acompanhe dicas diárias sobre manifestação, energia e o método Destrave.',
+      buttonLabel: 'Ver Instagram da Daniela',
+      buttonHref: 'https://www.instagram.com/dani_mairaferrenha/'
     },
     problem: {
-      title: 'Struggling with your current website?',
+      title: 'Você sente que sua vida está Travada?',
       bullets: [
-        'No time or technical knowledge to update the site',
-        'Paying high monthly fees to traditional agencies',
-        'Slow website or not mobile-friendly',
-        'Difficulty integrating forms and databases',
-        'Lack of fast support when you need to make changes'
+        'A maioria das pessoas conhece a teoria da Lei da Atração, mas falha na aplicação.',
+        'Sente que seus esforços não trazem os resultados desejados.',
+        'Vive em um ciclo de escassez e pensamentos limitantes.',
+        'O "Destrave" não é sobre mágica, é sobre psicologia, foco e energia.'
       ]
     },
     solution: {
-      title: 'We Build and Manage It For You',
+      title: 'O Poder do Invisível',
       paragraphs: [
-        'Forget complicated website builders. Our "Done-For-You" structure ensures your business has a professional digital presence without the headache of technical maintenance.',
-        'From an ultra-fast static page to dynamic platforms with their own CMS and Stripe payments, our annual plans cover everything: design, hosting, and continuous updates.'
+        'Aprenda que semelhante atrai semelhante. Entenda como seus pensamentos moldam sua realidade física.',
+        'Recalibre sua Frequência: Pare de emitir sinais de escassez. Aprenda a sintonizar na frequência exata dos seus sonhos.',
+        'Elimine Bloqueios: Identifique e destrua as crenças limitantes que sabotam seu sucesso antes mesmo de você começar.'
       ]
     },
     product: {
-      title: 'Features Included in Our Plans',
+      title: 'O que você vai aprender no Destrave',
       items: [
         {
-          icon: 'device',
-          title: 'Custom Domain',
-          description: 'Bring your own domain. We handle all the technical setup for free on every plan.'
+          icon: '1',
+          title: 'Os Fundamentos da Frequência',
+          description: 'Entenda como a energia funciona e como você se conecta com o universo.'
         },
         {
-          icon: 'clipboard',
-          title: 'Integrated Database',
-          description: 'Starting from the Professional plan, your website is backed by the power of Supabase for data and form management.'
+          icon: '2',
+          title: 'A Fórmula da Criação',
+          description: 'Peça, Acredite e Receba: o mapa exato para manifestar seus desejos.'
         },
         {
-          icon: 'chart',
-          title: 'Continuous Updates',
-          description: 'Need to change a photo or text? We offer minor monthly updates, or unlimited edits on the Premium plan.'
-        },
-        // {
-        //   icon: 'file',
-        //   title: 'Google Analytics and SEO',
-        //   description: 'Search engine optimization and visitor tracking included in the Professional and Premium plans.'
-        // },
-        {
-          icon: 'shield',
-          title: 'Accept Online Payments',
-          description: 'On the Premium plan, we integrate Stripe so you can sell products or services directly on your website.'
+          icon: '3',
+          title: 'Ferramentas de Potencialização',
+          description: 'Técnicas práticas para acelerar seus resultados dia após dia.'
         },
         {
-          icon: 'chart',
-          title: 'Dedicated Support',
-          description: 'Speak directly with our team via Email or WhatsApp. Premium clients have access to VIP support and phone calls.'
+          icon: '4',
+          title: 'Bloqueios e Como Superá-los',
+          description: 'Identifique o que te trava e limpe o caminho para a abundância.'
+        },
+        {
+          icon: '★',
+          title: 'BÔNUS EXCLUSIVO',
+          description: 'Desafio de 30 Dias de Prática para transformar sua rotina e vibração.'
         }
       ],
-      note: 'All websites are fully responsive, ensuring a perfect experience on desktops, tablets, and mobile phones.'
+      note: 'Conteúdo prático e validado para aplicação imediata.'
     },
     benefits: {
-      title: 'Why choose our subscription?',
+      title: 'Por que começar hoje?',
       bullets: [
-        'Transparent costs with a single annual billing cycle',
-        'Hosting and maintenance are fully included',
-        'Hand-coded websites optimized for maximum speed',
-        'Zero technical knowledge required on your part',
-        'Modern design that reflects the quality of your company'
-      ]
-    },
-    differentiators: {
-      title: 'Differentiators that drive results',
-      bullets: [
-        'Easy transition from a Static (Basic) to a Dynamic (Pro/Premium) website',
-        'Watermark removal starting from the Professional plan',
-        'Generous storage limits (Up to 20GB on the Premium plan)',
-        'Direct integration with your social media networks and WhatsApp',
-        'Optional CMS Panel for total control (Premium)'
+        'Método passo a passo e fácil de seguir',
+        'Alinhamento vibracional consciente e duradouro',
+        'Acesso imediato ao material após a compra',
+        'Garantia incondicional de 7 dias',
+        'Oferta especial por tempo limitado'
       ]
     },
     primaryCta: {
       id: 'cta-primary',
-      title: 'Ready to launch your website?',
-      text: 'Click the button below to schedule your free consultation and choose the ideal plan for your business.',
-      buttonLabel: 'I want my professional website',
-      buttonHref: '#contact',
-      note: 'Setup and design guided by our expert team.'
+      title: 'Comece sua transformação hoje',
+      text: 'Ao garantir sua cópia agora, você recebe acesso vitalício ao E-book completo + Acesso aos vídeos do Desafio de 30 Dias.',
+      buttonLabel: 'COMPRAR AGORA',
+      buttonHref: 'https://pay.kiwify.com.br/DFb06bi',
+      note: 'Pagamento único e seguro via Checkout.'
     },
     testimonials: {
-      title: 'Who trusts our work',
+      title: 'Sobre a Autora: Daniela Ferrenha',
       items: [
         {
-          quote: 'The basic plan was perfect for my consulting business. The site went live quickly, without any hassle, and with direct support on WhatsApp.',
-          author: 'Ricardo S., Independent Consultant',
-          rating: 5,
-          avatar: 'https://randomuser.me/api/portraits/men/32.jpg'
-        },
-        {
-          quote: 'We upgraded to the Premium plan and now we manage our own content through the CMS, plus we accept payments via Stripe!',
-          author: 'Mariana L., E-commerce Owner',
-          rating: 5,
-          avatar: 'https://randomuser.me/api/portraits/women/65.jpg'
-        },
-        {
-          quote: 'The team handles all the text and photo updates on the Professional plan. I save hours every single month.',
-          author: 'Carlos E., Clinic Owner',
-          rating: 5,
-          avatar: 'https://randomuser.me/api/portraits/men/35.jpg'
+          quote: '"O universo está pronto. E você?"',
+          author: 'Daniela Ferrenha',
+          description: 'Especialista em desenvolvimento pessoal e energética, Daniela Ferrenha compilou neste livro não apenas teorias, mas um mapa prático. Sua missão é ajudar pessoas a saírem do campo das ideias e entrarem no campo da realização através do alinhamento vibracional consciente.',
+          avatar: daniela
         }
       ]
     },
     faq: {
       id: 'faq',
-      title: 'Frequently Asked Questions',
+      title: 'Perguntas Frequentes',
       items: [
         {
-          question: 'What is considered a "Minor Update"?',
-          answer: 'A minor update includes text changes, image replacements, or link adjustments. Complete layout changes or redesigns are not included.'
+          question: 'Como recebo o conteúdo?',
+          answer: 'O acesso é imediato. Após a confirmação do pagamento, você receberá o link para download do PDF e acesso aos bônus no seu e-mail.'
         },
         {
-          question: 'Do you buy the domain for me?',
-          answer: 'You must purchase and bring your own domain (e.g., GoDaddy, Namecheap). From there, we handle all the technical connection entirely for free on any plan.'
+          question: 'O pagamento é seguro?',
+          answer: 'Sim, utilizamos as plataformas de pagamento mais seguras do mercado com criptografia de ponta a ponta.'
         },
         {
-          question: 'How does the CMS access work on the Premium plan?',
-          answer: 'On the Premium plan, we create a secure control panel (CMS) where you can log in yourself to edit text, add new services, or upload photos with no limits.'
-        },
-        {
-          question: 'Can I start with the Basic plan and upgrade later?',
-          answer: 'Absolutely! You can upgrade your static website to a dynamic version (Professional or Premium) at any time by simply paying the difference.'
+          question: 'Tenho garantia?',
+          answer: 'Sim! Você tem 7 dias de garantia incondicional. Se não gostar do conteúdo, devolvemos seu dinheiro.'
         }
       ]
     },
     support: {
-      title: 'Support and Contact',
-      description: 'Questions or new projects? Talk to us at',
-      email: 'contatomoveeuropa@gmail.com',
-      responseTime: 'Priority support given to active clients.'
+      title: 'Suporte ao Aluno',
+      description: 'Dúvidas sobre o método ou acesso? Entre em contato:',
+      email: 'suporte@danielaferrenha.com.br',
+      responseTime: '© 2026 Daniela Ferrenha. Todos os direitos reservados.'
     }
   },
   contact: {
-    title: 'Start Your Project Now',
-    subtitle: 'Fill out the form below and we will get in touch to understand your needs and propose the best plan.',
-    disclaimer: 'Your data is safe with us and will only be used for business contact purposes.',
+    title: 'Esta com dúvidas ou quer saber mais?',
+    subtitle: 'Preencha os dados para finalizar sua inscrição e começar sua jornada de manifestação.',
+    disclaimer: 'Compra Segura • Seus dados estão protegidos.',
     form: {
-      name: 'Your name or company name',
-      email: 'Your best email',
-      message: 'Tell us a bit about your project or which plan interested you',
-      button: 'Send Request',
-      loading: 'Sending...',
-      success: 'Your request has been sent! We will get back to you soon.',
-      error: 'Unable to send your message. Please try again.'
+      name: 'Nome Completo',
+      email: 'Seu melhor e-mail',
+      message: 'Alguma dúvida adicional?',
+      button: 'Enviar',
+      loading: 'Processando...',
+      success: 'Inscrição realizada com sucesso! Verifique seu e-mail.',
+      error: 'Ocorreu um erro. Tente novamente ou entre em contato com o suporte.'
     }
   },
   footer: {
-    title: '',
+    title: 'Daniela Ferrenha',
     links: []
   },
   limitedOffer: {
-    title: 'Limited Time Offer: 50% OFF first year',
-    subtitle: 'Expires in:',
+    title: 'OFERTA POR TEMPO LIMITADO: 50% OFF',
+    subtitle: 'A oferta expira em:',
     targetDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(),
     timerLabels: {
-      days: 'Days',
+      days: 'Dias',
       hours: 'Hours',
-      minutes: 'Mins',
-      seconds: 'Secs'
+      minutes: 'Min',
+      seconds: 'Seg'
     }
   }
 }
