@@ -32,8 +32,8 @@ const Section = ({ id, title, eyebrow, children }) => (
     {eyebrow ? (
   <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-brand-primary md:text-xs">{eyebrow}</p>
     ) : null}
-  <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">{title}</h2>
-    <div className="mt-6 space-y-4 text-sm text-slate-600 sm:text-base md:text-lg">{children}</div>
+  <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl md:text-5xl">{title}</h2>
+    <div className="mt-8 space-y-6 text-base text-slate-600 sm:text-lg md:text-xl leading-relaxed">{children}</div>
   </section>
 )
 

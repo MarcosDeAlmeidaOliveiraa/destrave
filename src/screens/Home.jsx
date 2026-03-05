@@ -31,14 +31,14 @@ export function HomeScreen({ slides, ctaLink, checkoutUrl, loading }) {
               {primarySlide.badge ?? '✨ MÉTODO EXCLUSIVO'}
             </span>
             
-            <h1 className="text-2xl font-black leading-tight tracking-tight text-zinc-950 sm:text-3xl md:text-5xl lg:text-7xl">
+            <h1 className="text-3xl font-[900] leading-[1.1] tracking-[-0.04em] text-zinc-950 sm:text-5xl md:text-6xl lg:text-8xl">
               {primarySlide.title1} <br />
-              <span className="italic text-brand-primary">
+              <span className="italic text-brand-primary drop-shadow-sm">
                 {primarySlide.title2}
               </span>
             </h1>
             
-            <p className="mx-auto mt-4 max-w-2xl text-sm font-medium leading-relaxed text-zinc-600 sm:text-base md:mt-8 md:text-xl lg:text-2xl">
+            <p className="mx-auto mt-6 max-w-3xl text-base font-medium leading-relaxed tracking-tight text-zinc-600 sm:text-xl md:mt-10 md:text-2xl lg:text-3xl lg:leading-snug">
               {primaryDescription}
             </p>
           </div>
