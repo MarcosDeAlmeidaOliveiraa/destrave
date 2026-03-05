@@ -3,6 +3,7 @@ import { Header } from './components/Header'
 import { TopBanner } from './components/TopBanner'
 import { BottomNav } from './components/BottomNav'
 import { HomeScreen } from './screens/Home'
+import { QuizScreen } from './screens/Quiz'
 import { SalesSections } from './components/SalesSections'
 import { Footer } from './components/Footer'
 import { ContactScreen } from './screens/Contact'
@@ -39,6 +40,7 @@ const writeStorage = (key, value) => {
 export default function App() {
   const [language, setLanguage] = useState(() => readStorage('language', getInitialLang()))
   const [showBanner, setShowBanner] = useState(() => readStorage('showBanner', true))
+  const [currentScreen, setCurrentScreen] = useState('home') // 'home' | 'quiz'
 
   const { content, loading } = useAutoTranslate(baseContent, language)
 
@@ -53,6 +55,17 @@ export default function App() {
   }
 
   const navLabels = useMemo(() => content.nav, [content])
+
+  if (currentScreen === 'quiz') {
+    return (
+      <div className="min-h-screen text-zinc-950 bg-slate-50">
+        <QuizScreen 
+          onBack={() => setCurrentScreen('home')} 
+          checkoutUrl={content.hero.checkoutUrl}
+        />
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen text-zinc-950">
@@ -74,7 +87,7 @@ export default function App() {
           slides={content.hero.slides}
           ctaLink={content.hero.ctaLink}
           checkoutUrl={content.hero.checkoutUrl}
-          offer={content.limitedOffer}
+          onStartQuiz={() => setCurrentScreen('quiz')}
         />
         <div className="space-y-20 md:space-y-40">
           <SalesSections sales={content.sales} />
@@ -83,6 +96,8 @@ export default function App() {
       </main>
 
       <Footer footer={content.footer} />
+      <FloatingActions />
+      <BottomNav />
     </div>
   )
 }

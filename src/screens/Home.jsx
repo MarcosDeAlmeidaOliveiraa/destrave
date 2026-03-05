@@ -2,7 +2,7 @@ import { HeroSlider } from '../components/HeroSlider'
 import { DiagnosisQuiz } from '../components/DiagnosisQuiz'
 import coverImage from '../images/imagemPrincipal.png'
 
-export function HomeScreen({ slides, ctaLink, checkoutUrl, loading }) {
+export function HomeScreen({ slides, ctaLink, checkoutUrl, onStartQuiz, loading }) {
   const sliderSlides = slides.map((slide) => ({ 
     ...slide, 
     ctaLink: slide.ctaLink ?? ctaLink ?? '#courses',
@@ -45,14 +45,27 @@ export function HomeScreen({ slides, ctaLink, checkoutUrl, loading }) {
         </div>
       </div>
 
-      {/* Diagnosis Quiz Section */}
+      {/* Diagnosis Quiz Section - Agora com botão para tela dedicada */}
       <div id="diagnosis" className="mt-20 px-4 sm:px-6 md:mt-32 md:px-8 lg:mt-48">
         <div className="text-center mb-12 md:mb-20">
            <h2 className="text-2xl font-black text-zinc-900 sm:text-4xl md:text-6xl">Faça seu Diagnóstico</h2>
-           <p className="mt-4 text-base text-slate-500 font-medium sm:text-lg md:mt-6">Responda as perguntas abaixo para identificar seus bloqueios.</p>
-        </div>
-        <div className="mx-auto max-w-2xl">
-          <DiagnosisQuiz checkoutUrl={primarySlide.checkoutUrl} />
+           <p className="mt-4 text-base text-slate-500 font-medium sm:text-lg md:mt-6">Identifique os padrões subconscientes que estão travando sua prosperidade.</p>
+           
+           <div className="mt-10 md:mt-16">
+              <button 
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  onStartQuiz();
+                }}
+                className="group relative inline-flex items-center justify-center rounded-full bg-brand-primary px-10 py-5 text-lg font-black uppercase tracking-widest text-white shadow-[0_20px_50px_rgba(139,92,246,0.3)] transition-all duration-300 hover:scale-105 hover:bg-brand-dark active:scale-95 sm:px-16 sm:py-6 sm:text-xl"
+              >
+                <span className="relative z-10">Iniciar Diagnóstico Grátis</span>
+                <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 transition-opacity group-hover:opacity-100"></div>
+              </button>
+              <p className="mt-6 text-sm font-bold uppercase tracking-tighter text-brand-primary opacity-70">
+                Leva apenas 2 minutos • 100% Privado
+              </p>
+           </div>
         </div>
       </div>
 

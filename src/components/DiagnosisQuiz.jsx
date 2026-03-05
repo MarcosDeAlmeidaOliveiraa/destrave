@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { FiSend, FiCheckCircle } from 'react-icons/fi';
 import daniela from '../images/daniela.png';
 
-export function DiagnosisQuiz({ checkoutUrl }) {
+export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
   const [step, setStep] = useState(0);
   const [name, setName] = useState('');
   const [messages, setMessages] = useState([]);
@@ -43,7 +43,7 @@ export function DiagnosisQuiz({ checkoutUrl }) {
       id: 'success',
       questions: [
         'O que você sente quando vê alguém com muito sucesso financeiro?',
-        `1 - “Deve ter feito coisa errada” ou “Teve sorte”.
+        `1 - “Deve feito coisa errada” ou “Teve sorte”.
 2 - Admiração misturada com “isso não é pra mim”.
 3 - Inspiração… mas frustração por não saber como chegar lá.
 4 - Reconhecimento de que é uma prova de que também é possível pra mim.`,
@@ -87,7 +87,12 @@ export function DiagnosisQuiz({ checkoutUrl }) {
   }, [messages, isTyping]);
 
   const addMessage = (text, sender) => {
-    setMessages((prev) => [...prev, { text, sender, id: `${sender}-${Date.now()}-${Math.random()}` }]);
+    setMessages((prev) => [...prev, { 
+      text, 
+      sender, 
+      id: `${sender}-${Date.now()}-${Math.random()}`,
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    }]);
   };
 
   const sendNextQuestions = async (stepIndex) => {
@@ -133,83 +138,118 @@ export function DiagnosisQuiz({ checkoutUrl }) {
   };
 
   return (
-    <div className="mx-auto w-full overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-2xl md:rounded-[2.5rem] lg:max-w-xl">
-      {/* Header */}
-      <div className="flex items-center gap-3 bg-brand-dark p-4 text-white sm:p-5">
+    <div className="flex flex-col h-screen max-h-screen bg-[#efe7de] overflow-hidden md:rounded-[2rem] md:h-[85vh] md:max-w-md md:mx-auto md:shadow-2xl md:border md:border-slate-200">
+      {/* Header Estilo WhatsApp */}
+      <div className="flex items-center gap-3 bg-[#075e54] p-3 text-white shadow-md z-10">
+        {onComplete && (
+          <button onClick={onComplete} className="p-1 hover:bg-white/10 rounded-full transition-colors">
+            <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          </button>
+        )}
         <div className="relative">
-          <img src={daniela} alt="Daniela" className="h-10 w-10 rounded-full border-2 border-brand-accent object-cover sm:h-12 sm:w-12" />
-          <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-brand-dark bg-green-500"></div>
+          <img src={daniela} alt="Daniela" className="h-10 w-10 rounded-full border border-white/20 object-cover" />
+          <div className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-[#075e54] bg-[#25d366]"></div>
         </div>
-        <div>
-          <h3 className="text-sm font-bold text-white sm:text-base">Daniela Ferrenha</h3>
-          <p className="text-[10px] text-brand-accent sm:text-xs">Online agora • Diagnóstico</p>
+        <div className="flex-1 overflow-hidden">
+          <h3 className="text-sm font-bold truncate">Daniela Ferrenha</h3>
+          <p className="text-[10px] opacity-80">visto por último hoje às {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
         </div>
       </div>
 
-      {/* Chat Area */}
+      {/* Chat Area com Fundo de Pattern */}
       <div 
         ref={scrollRef}
-        className="h-[65vh] min-h-[400px] max-h-[600px] overflow-y-auto bg-slate-50 p-4 scrollbar-hide flex flex-col gap-3 sm:p-6"
+        className="flex-1 overflow-y-auto p-4 flex flex-col gap-2 scroll-smooth"
+        style={{ 
+          backgroundImage: 'url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")',
+          backgroundSize: '400px'
+        }}
       >
+        <div className="mx-auto my-2 bg-[#d1ebf2] text-[#128c7e] text-[10px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider shadow-sm">
+          Hoje
+        </div>
+
         {messages.map((m) => (
           <div 
             key={m.id}
-            className={`flex ${m.sender === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}
+            className={`flex ${m.sender === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-1 duration-200`}
           >
-            <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm shadow-sm sm:px-5 sm:py-4 sm:text-base ${
+            <div className={`relative max-w-[85%] px-3 py-2 text-[15px] shadow-sm ${
               m.sender === 'user' 
-                ? 'bg-brand-primary text-white rounded-tr-none' 
-                : 'bg-white text-zinc-800 rounded-tl-none border border-slate-100'
+                ? 'bg-[#dcf8c6] text-zinc-800 rounded-lg rounded-tr-none ml-8' 
+                : 'bg-white text-zinc-800 rounded-lg rounded-tl-none mr-8'
             }`}>
-              <p className="whitespace-pre-line leading-relaxed">{m.text}</p>
+              <p className="whitespace-pre-line leading-snug">{m.text}</p>
+              <div className="flex justify-end mt-1">
+                <span className="text-[9px] text-zinc-400 font-medium">{m.time}</span>
+                {m.sender === 'user' && (
+                  <span className="ml-1 text-[#34b7f1]">
+                    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="12" width="12" xmlns="http://www.w3.org/2000/svg"><path d="m2.394 13.742 4.743 3.62 7.616-8.704-1.506-1.316-6.403 7.317-3.254-2.481z"></path><path d="m19.147 8.658-1.506-1.317-7.617 8.704L8.85 14.77l-1.191 1.362 2.364 1.804z"></path></svg>
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         ))}
         {isTyping && (
           <div className="flex justify-start">
-            <div className="bg-white px-4 py-2 rounded-2xl rounded-tl-none border border-slate-100 flex gap-1">
-              <div className="h-1.5 w-1.5 bg-slate-300 rounded-full animate-bounce"></div>
-              <div className="h-1.5 w-1.5 bg-slate-300 rounded-full animate-bounce delay-75"></div>
-              <div className="h-1.5 w-1.5 bg-slate-300 rounded-full animate-bounce delay-150"></div>
+            <div className="bg-white px-4 py-2 rounded-lg rounded-tl-none shadow-sm flex gap-1">
+              <div className="h-1.5 w-1.5 bg-zinc-300 rounded-full animate-bounce"></div>
+              <div className="h-1.5 w-1.5 bg-zinc-300 rounded-full animate-bounce delay-75"></div>
+              <div className="h-1.5 w-1.5 bg-zinc-300 rounded-full animate-bounce delay-150"></div>
             </div>
           </div>
         )}
       </div>
 
-      {/* Input Area */}
-      {step < quizSteps.length - 1 ? (
-        <div className="border-t border-slate-100 p-4 bg-white flex gap-2 sm:p-6">
-          <input
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-            placeholder={step === 0 ? "Digite seu nome..." : "Responda com 1, 2, 3 ou 4..."}
-            className="flex-1 bg-slate-100 rounded-full px-5 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary/20 sm:py-4"
-          />
-          <button 
-            onClick={handleSend}
-            disabled={!inputValue.trim()}
-            className="h-11 w-11 flex items-center justify-center rounded-full bg-brand-primary text-white shadow-lg transition-transform active:scale-90 disabled:opacity-50 sm:h-14 sm:w-14"
-          >
-            <FiSend className="text-lg" />
-          </button>
-        </div>
-      ) : (
-        <div className="p-6 bg-brand-primary text-center sm:p-10">
-            <a 
-              href={checkoutUrl || "#checkout"} 
-              target={checkoutUrl ? "_blank" : "_self"}
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-brand-primary font-black px-8 py-4 rounded-full shadow-xl uppercase tracking-widest hover:scale-105 transition-transform sm:px-12 sm:py-5 sm:text-lg"
+      {/* Input Area Estilo WhatsApp */}
+      <div className="p-2 bg-[#efe7de] flex items-end gap-2 sticky bottom-0">
+        {step < quizSteps.length - 1 ? (
+          <>
+            <div className="flex-1 bg-white rounded-2xl px-4 py-2 shadow-sm flex items-end">
+              <textarea
+                rows="1"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSend();
+                  }
+                }}
+                placeholder={step === 0 ? "Digite seu nome..." : "Responda com 1, 2, 3 ou 4..."}
+                className="flex-1 bg-transparent border-none focus:ring-0 text-[16px] py-1 max-h-32 resize-none"
+                style={{ height: 'auto' }}
+              />
+            </div>
+            <button 
+              onClick={handleSend}
+              disabled={!inputValue.trim()}
+              className="h-12 w-12 flex items-center justify-center rounded-full bg-[#128c7e] text-white shadow-md active:scale-90 disabled:opacity-50 transition-transform"
             >
-              <FiCheckCircle /> Quero o Destrave Agora
-            </a>
-            <p className="mt-4 text-[10px] text-white/70 font-bold uppercase tracking-widest sm:text-xs sm:mt-6">
-              Made with Love & Structure
-            </p>
-        </div>
-      )}
+              <FiSend className="text-xl ml-0.5" />
+            </button>
+          </>
+        ) : (
+          <div className="w-full p-4 bg-white rounded-2xl shadow-lg text-center animate-in zoom-in-95 duration-300">
+              <p className="text-sm font-bold text-[#075e54] mb-4 uppercase tracking-tight">🎉 Diagnóstico Concluído!</p>
+              <a 
+                href={checkoutUrl || "#checkout"} 
+                target={checkoutUrl ? "_blank" : "_self"}
+                rel="noreferrer"
+                className="block w-full bg-[#25d366] text-white font-black py-4 rounded-xl shadow-md uppercase text-sm hover:bg-[#128c7e] transition-colors"
+              >
+                Quero o Destrave Agora
+              </a>
+              <button 
+                onClick={onComplete}
+                className="mt-4 text-xs font-bold text-zinc-400 hover:text-[#075e54] uppercase tracking-widest"
+              >
+                Voltar para o site
+              </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
