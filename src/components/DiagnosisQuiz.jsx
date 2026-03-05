@@ -138,10 +138,10 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
   };
 
   return (
-    <div className="flex flex-col h-full w-full bg-[#efe7de] overflow-hidden md:h-[85vh] md:max-h-[800px] md:max-w-md md:mx-auto md:shadow-2xl md:border md:border-slate-200 md:rounded-[2rem] md:my-auto">
-      {/* Header Estilo WhatsApp */}
+    <div className="flex flex-col h-full w-full bg-white overflow-hidden md:h-[85vh] md:max-h-[800px] md:max-w-md md:mx-auto md:shadow-2xl md:border md:border-slate-200 md:rounded-[2rem] md:my-auto">
+      {/* Header Estilo Premium Purple */}
       <div 
-        className="flex items-center gap-3 bg-[#075e54] px-3 pb-3 text-white shadow-md z-10 shrink-0"
+        className="flex items-center gap-3 bg-brand-dark px-3 pb-3 text-white shadow-md z-10 shrink-0"
         style={{ paddingTop: 'calc(1.25rem + env(safe-area-inset-top, 0px))' }}
       >
         {onComplete && (
@@ -151,7 +151,7 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
         )}
         <div className="relative">
           <img src={daniela} alt="Daniela" className="h-10 w-10 rounded-full border border-white/20 object-cover" />
-          <div className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-[#075e54] bg-[#25d366]"></div>
+          <div className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-brand-dark bg-brand-primary"></div>
         </div>
         <div className="flex-1 overflow-hidden">
           <h3 className="text-sm font-bold truncate">Daniela Ferrenha</h3>
@@ -159,16 +159,18 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
         </div>
       </div>
 
-      {/* Chat Area */}
+      {/* Chat Area com Fundo Branco Limpo */}
       <div 
         ref={scrollRef}
-        className="flex-1 overflow-y-auto p-4 flex flex-col gap-2 scroll-smooth"
+        className="flex-1 overflow-y-auto p-4 flex flex-col gap-2 scroll-smooth bg-white"
         style={{ 
           backgroundImage: 'url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")',
-          backgroundSize: '400px'
+          backgroundSize: '400px',
+          backgroundBlendMode: 'overlay',
+          backgroundColor: 'rgba(255,255,255,0.95)'
         }}
       >
-        <div className="mx-auto my-2 bg-[#d1ebf2] text-[#128c7e] text-[10px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider shadow-sm">
+        <div className="mx-auto my-2 bg-slate-100 text-slate-500 text-[10px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider shadow-sm">
           Hoje
         </div>
 
@@ -177,16 +179,16 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
             key={m.id}
             className={`flex ${m.sender === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-1 duration-200`}
           >
-            <div className={`relative max-w-[85%] px-3 py-2 text-[15px] shadow-sm ${
+            <div className={`relative max-w-[85%] px-3 py-2 text-[15px] shadow-sm border border-slate-100 ${
               m.sender === 'user' 
-                ? 'bg-[#dcf8c6] text-zinc-800 rounded-lg rounded-tr-none ml-8' 
-                : 'bg-white text-zinc-800 rounded-lg rounded-tl-none mr-8'
+                ? 'bg-brand-accent/40 text-black rounded-lg rounded-tr-none ml-8' 
+                : 'bg-white text-black rounded-lg rounded-tl-none mr-8'
             }`}>
-              <p className="whitespace-pre-line leading-snug">{m.text}</p>
+              <p className="whitespace-pre-line leading-snug font-medium">{m.text}</p>
               <div className="flex justify-end mt-1">
-                <span className="text-[9px] text-zinc-400 font-medium">{m.time}</span>
+                <span className="text-[9px] font-bold text-slate-400">{m.time}</span>
                 {m.sender === 'user' && (
-                  <span className="ml-1 text-[#34b7f1]">
+                  <span className="ml-1 text-brand-primary">
                     <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="12" width="12" xmlns="http://www.w3.org/2000/svg"><path d="m2.394 13.742 4.743 3.62 7.616-8.704-1.506-1.316-6.403 7.317-3.254-2.481z"></path><path d="m19.147 8.658-1.506-1.317-7.617 8.704L8.85 14.77l-1.191 1.362 2.364 1.804z"></path></svg>
                   </span>
                 )}
@@ -196,23 +198,23 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
         ))}
         {isTyping && (
           <div className="flex justify-start">
-            <div className="bg-white px-4 py-2 rounded-lg rounded-tl-none shadow-sm flex gap-1">
-              <div className="h-1.5 w-1.5 bg-zinc-300 rounded-full animate-bounce"></div>
-              <div className="h-1.5 w-1.5 bg-zinc-300 rounded-full animate-bounce delay-75"></div>
-              <div className="h-1.5 w-1.5 bg-zinc-300 rounded-full animate-bounce delay-150"></div>
+            <div className="bg-white px-4 py-2 rounded-lg rounded-tl-none shadow-sm border border-slate-100 flex gap-1">
+              <div className="h-1.5 w-1.5 bg-brand-primary/30 rounded-full animate-bounce"></div>
+              <div className="h-1.5 w-1.5 bg-brand-primary/30 rounded-full animate-bounce delay-75"></div>
+              <div className="h-1.5 w-1.5 bg-brand-primary/30 rounded-full animate-bounce delay-150"></div>
             </div>
           </div>
         )}
       </div>
 
-      {/* Input Area - Ajuste fino do padding para o ponto ideal */}
+      {/* Input Area Limpa */}
       <div 
-        className="px-3 pt-3 bg-[#efe7de] flex items-end gap-2 shrink-0 border-t border-black/5"
-        style={{ paddingBottom: 'calc(4rem + env(safe-area-inset-bottom, 0px))' }}
+        className="px-3 pt-3 bg-white flex items-end gap-2 shrink-0 border-t border-slate-100"
+        style={{ paddingBottom: 'calc(2rem + env(safe-area-inset-bottom, 0px))' }}
       >
         {step < quizSteps.length - 1 ? (
           <>
-            <div className="flex-1 bg-white rounded-2xl px-4 py-2 shadow-sm flex items-end">
+            <div className="flex-1 bg-slate-50 rounded-2xl px-4 py-2 shadow-inner flex items-end border border-slate-200">
               <textarea
                 rows="1"
                 value={inputValue}
@@ -224,32 +226,32 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
                   }
                 }}
                 placeholder={step === 0 ? "Digite seu nome..." : "Responda com 1, 2, 3 ou 4..."}
-                className="flex-1 bg-transparent border-none focus:ring-0 text-[16px] py-1 max-h-32 resize-none"
+                className="flex-1 bg-transparent border-none focus:ring-0 text-[16px] py-1 max-h-32 resize-none text-black font-medium placeholder:text-slate-400"
                 style={{ height: 'auto' }}
               />
             </div>
             <button 
               onClick={handleSend}
               disabled={!inputValue.trim()}
-              className="h-12 w-12 flex items-center justify-center rounded-full bg-[#128c7e] text-white shadow-md active:scale-90 disabled:opacity-50 transition-transform"
+              className="h-12 w-12 flex items-center justify-center rounded-full bg-brand-primary text-white shadow-lg active:scale-90 disabled:opacity-50 transition-transform"
             >
               <FiSend className="text-xl ml-0.5" />
             </button>
           </>
         ) : (
-          <div className="w-full p-4 bg-white rounded-2xl shadow-lg text-center animate-in zoom-in-95 duration-300">
-              <p className="text-sm font-bold text-[#075e54] mb-4 uppercase tracking-tight">🎉 Diagnóstico Concluído!</p>
+          <div className="w-full p-4 bg-white rounded-2xl shadow-xl border border-brand-accent/20 text-center animate-in zoom-in-95 duration-300">
+              <p className="text-sm font-bold text-brand-dark mb-4 uppercase tracking-tight">🎉 Diagnóstico Concluído!</p>
               <a 
                 href={checkoutUrl || "#checkout"} 
                 target={checkoutUrl ? "_blank" : "_self"}
                 rel="noreferrer"
-                className="block w-full bg-[#25d366] text-white font-black py-4 rounded-xl shadow-md uppercase text-sm hover:bg-[#128c7e] transition-colors"
+                className="block w-full bg-brand-primary text-white font-black py-4 rounded-xl shadow-md uppercase text-sm hover:bg-brand-dark transition-colors"
               >
                 Quero o Destrave Agora
               </a>
               <button 
                 onClick={onComplete}
-                className="mt-4 text-xs font-bold text-zinc-400 hover:text-[#075e54] uppercase tracking-widest"
+                className="mt-4 text-xs font-bold text-slate-400 hover:text-brand-primary uppercase tracking-widest"
               >
                 Voltar para o site
               </button>

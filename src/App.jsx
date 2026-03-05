@@ -109,7 +109,6 @@ export default function App() {
 
       <Footer footer={content.footer} />
       <FloatingActions />
-      <BottomNav />
     </div>
   )
 }
