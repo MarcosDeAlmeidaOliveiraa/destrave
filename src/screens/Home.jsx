@@ -8,9 +8,9 @@ export function HomeScreen({ slides, ctaLink, loading }) {
   const primaryDescription = primarySlide.description ?? 'Transforme sua realidade com o Método Destrave.'
 
   return (
-    <section id="home" className="relative bg-white text-zinc-950">
+    <section id="home" className="relative text-zinc-950">
       {/* Top Banner Image - Ajustado para visibilidade total */}
-      <div className="relative w-full bg-white overflow-hidden">
+      <div className="relative w-full overflow-hidden">
         <img
           src={coverImage}
           alt="Main Cover"
@@ -21,7 +21,7 @@ export function HomeScreen({ slides, ctaLink, loading }) {
 
       {/* Main Content Card - Posicionado logo abaixo com sobreposição mínima */}
       <div className="relative z-10 -mt-6 px-4 sm:px-6 md:-mt-16 md:px-8 lg:-mt-24">
-        <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 mx-auto max-w-4xl rounded-[2rem] border border-slate-100 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.12)] sm:p-10 md:rounded-[3.5rem] md:p-16">
+        <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 mx-auto max-w-4xl rounded-[2rem] border border-slate-100 bg-white/80 backdrop-blur-md p-6 shadow-[0_20px_50px_rgba(0,0,0,0.12)] sm:p-10 md:rounded-[3.5rem] md:p-16">
           <div className="text-center">
             <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-primary md:mb-8 md:px-6 md:py-2 md:text-xs">
               {primarySlide.badge ?? '✨ MÉTODO EXCLUSIVO'}

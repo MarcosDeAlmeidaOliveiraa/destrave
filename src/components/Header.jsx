@@ -9,7 +9,7 @@ const navItems = [
   { href: '#faq', icon: FiHelpCircle, labelKey: 'faq' }
 ]
 
-export function Header({ labels, languages, currentLanguage, onSelectLanguage }) {
+export function Header({ labels, languages, currentLanguage, onSelectLanguage, loading }) {
   const [isLangOpen, setIsLangOpen] = useState(false)
   const currentLangObj = languages?.find(l => l.code === currentLanguage)
 
@@ -75,6 +75,11 @@ export function Header({ labels, languages, currentLanguage, onSelectLanguage })
                       <span>{lang.label}</span>
                     </button>
                   ))}
+                  {loading && (
+                    <div className="mt-1 px-3 py-1 text-[10px] text-slate-400 animate-pulse text-center">
+                      Traduzindo...
+                    </div>
+                  )}
                 </div>
               </>
             )}

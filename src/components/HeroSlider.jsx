@@ -11,7 +11,7 @@ export function HeroSlider({ slides }) {
           return (
             <section
               key={slide.id ?? (slide.title || slide.title1)}
-              className="relative min-w-[90%] snap-center rounded-[2rem] border border-slate-200 bg-white p-5 text-zinc-950 shadow-xl transition-transform duration-300 ease-out hover:-translate-y-1 sm:min-w-[80%] md:min-w-[85%] md:p-8 lg:min-w-[100%] lg:rounded-[2.5rem]"
+              className="relative min-w-[90%] snap-center rounded-[2rem] border border-slate-200 bg-white/80 backdrop-blur-md p-5 text-zinc-950 shadow-xl transition-transform duration-300 ease-out hover:-translate-y-1 sm:min-w-[80%] md:min-w-[85%] md:p-8 lg:min-w-[100%] lg:rounded-[2.5rem]"
             >
               <div className="grid gap-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-10">
                 <div className="relative min-h-[300px] overflow-hidden rounded-3xl border border-slate-100 bg-slate-50 sm:min-h-[400px] md:h-full lg:h-[600px]">
@@ -95,8 +95,8 @@ export function HeroSlider({ slides }) {
         })}
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white via-white/50 to-transparent" aria-hidden />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white via-white/30 to-transparent" aria-hidden />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-brand-accent/20 via-brand-accent/10 to-transparent" aria-hidden />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-brand-accent/20 via-brand-accent/10 to-transparent" aria-hidden />
     </div>
   )
 }

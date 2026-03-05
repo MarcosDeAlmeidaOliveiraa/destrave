@@ -28,7 +28,7 @@ const iconMap = {
 }
 
 const Section = ({ id, title, eyebrow, children }) => (
-  <section id={id} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 md:rounded-3xl md:p-10 lg:p-12">
+  <section id={id} className="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur-md p-6 shadow-sm sm:p-8 md:rounded-3xl md:p-10 lg:p-12">
     {eyebrow ? (
   <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-brand-primary md:text-xs">{eyebrow}</p>
     ) : null}
@@ -72,7 +72,7 @@ const FeatureGrid = ({ items }) => (
 const FAQList = ({ items }) => (
   <div className="space-y-3">
     {items.map((item, index) => (
-      <details key={index} className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:border-brand-primary">
+      <details key={index} className="group rounded-2xl border border-slate-200 bg-white/80 backdrop-blur-sm p-5 transition-all duration-200 hover:border-brand-primary">
         <summary className="flex cursor-pointer items-center justify-between text-left text-base font-bold text-slate-900 list-none sm:text-lg">
           {item.question}
           <span className="text-brand-primary transition-transform duration-300 group-open:rotate-45 font-black text-xl">+</span>
@@ -167,7 +167,7 @@ export function SalesSections({ sales }) {
       ) : null}
 
       {differentiators ? (
-        <Section id="diferenciais" title={differentiators.title}>
+        <Section id="diferenciais" title={diferenciais.title}>
           <BulletList items={differentiators.bullets} />
         </Section>
       ) : null}

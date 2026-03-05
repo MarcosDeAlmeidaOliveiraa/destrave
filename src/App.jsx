@@ -8,6 +8,7 @@ import { Footer } from './components/Footer'
 import { ContactScreen } from './screens/Contact'
 import { baseContent, languages } from './data/content'
 import { FloatingActions } from './components/FloatingActions'
+import { useAutoTranslate } from './hooks/useAutoTranslate'
 
 const getInitialLang = () => {
   if (typeof navigator === 'undefined') return 'pt';
@@ -39,8 +40,7 @@ export default function App() {
   const [language, setLanguage] = useState(() => readStorage('language', getInitialLang()))
   const [showBanner, setShowBanner] = useState(() => readStorage('showBanner', true))
 
-  // Directly using baseContent now that auto-translation is removed
-  const content = baseContent;
+  const { content, loading } = useAutoTranslate(baseContent, language)
 
   useEffect(() => {
     document.documentElement.lang = language
@@ -55,7 +55,7 @@ export default function App() {
   const navLabels = useMemo(() => content.nav, [content])
 
   return (
-    <div className="min-h-screen bg-white text-zinc-950">
+    <div className="min-h-screen text-zinc-950">
       <div className="sticky top-0 z-50">
         {showBanner && content.limitedOffer && (
           <TopBanner offer={content.limitedOffer} onDismiss={handleDismissBanner} />
@@ -65,6 +65,7 @@ export default function App() {
           languages={languages}
           currentLanguage={language}
           onSelectLanguage={setLanguage}
+          loading={loading}
         />
       </div>
 
