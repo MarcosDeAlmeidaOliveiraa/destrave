@@ -91,6 +91,8 @@ const CtaCard = ({ id, title, text, buttonLabel, buttonHref = '#checkout', note 
     <p className="mt-4 text-base opacity-90 sm:text-lg md:text-xl lg:text-2xl">{text}</p>
     <a
       href={buttonHref}
+      target="_blank"
+      rel="noreferrer"
       className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-black uppercase text-brand-primary shadow-xl transition-all duration-300 hover:scale-105 hover:bg-slate-50 sm:px-10 sm:py-5 md:px-12 md:py-6 md:text-base"
     >
       {buttonLabel}

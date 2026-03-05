@@ -43,7 +43,7 @@ export const baseContent = {
         imageAlt: 'Capa do Livro Destrave'
       }
     ],
-    ctaLink: 'https://pay.kiwify.com.br/DFb06bi',
+    ctaLink: '#diagnosis',
     checkoutUrl: 'https://pay.kiwify.com.br/DFb06bi'
   },
   sales: {

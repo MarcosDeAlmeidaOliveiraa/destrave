@@ -7,17 +7,11 @@ export function FloatingActions() {
       url: 'https://wa.me/353834694919',
       icon: FaWhatsapp,
       color: 'bg-[#25D366]',
-    },
-    {
-      label: 'Instagram',
-      url: 'https://www.instagram.com/dani_mairaferrenha/',
-      icon: FaInstagram,
-      color: 'bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]',
     }
   ]
 
   return (
-    <div className="fixed bottom-24 right-6 z-50 flex flex-col gap-4 md:bottom-8">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4 md:bottom-8">
       {links.map((link) => (
         <a
           key={link.label}

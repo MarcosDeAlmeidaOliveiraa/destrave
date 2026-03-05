@@ -83,6 +83,8 @@ export function HeroSlider({ slides }) {
                     )}
                     <a
                       href={slide.ctaLink ?? '#courses'}
+                      target={(slide.ctaLink ?? '').startsWith('#') ? '_self' : '_blank'}
+                      rel="noreferrer"
                       className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-primary bg-brand-primary px-6 py-3 text-sm font-black uppercase text-white shadow-md transition-all duration-300 hover:bg-white hover:text-brand-primary sm:px-8 sm:py-4 sm:text-base"
                     >
                       {slide.cta}

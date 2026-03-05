@@ -73,6 +73,7 @@ export default function App() {
         <HomeScreen
           slides={content.hero.slides}
           ctaLink={content.hero.ctaLink}
+          checkoutUrl={content.hero.checkoutUrl}
           offer={content.limitedOffer}
         />
         <div className="space-y-12 md:space-y-24">
@@ -82,8 +83,6 @@ export default function App() {
       </main>
 
       <Footer footer={content.footer} />
-      <BottomNav />
-      <FloatingActions />
     </div>
   )
 }
