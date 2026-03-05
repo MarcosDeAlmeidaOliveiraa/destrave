@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { FiHelpCircle, FiHome, FiGlobe, FiChevronDown } from 'react-icons/fi'
 import ReactCountryFlag from 'react-country-flag'
-// import {} from '@heroicons/react/24/outline'
 
 const navItems = [
   { href: '#home', icon: FiHome, labelKey: 'home' },
@@ -16,13 +15,10 @@ export function Header({ labels, languages, currentLanguage, onSelectLanguage, l
   return (
     <header className="border-b border-slate-100 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 text-sm sm:px-6 sm:py-6 sm:text-base">
-        <div className="flex flex-col">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-black tracking-tighter text-brand-dark sm:text-3xl lg:text-4xl">
-              Destrave<span className="text-brand-primary">Online</span>
-            </span>
-          </div>
-          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-primary sm:text-xs sm:tracking-[0.3em]">{labels?.tagline}</span>
+        <div className="flex items-center">
+          <span className="text-2xl font-black tracking-tighter text-brand-dark sm:text-3xl lg:text-4xl uppercase">
+            Move
+          </span>
         </div>
         
         <div className="flex items-center gap-4 md:gap-8">
