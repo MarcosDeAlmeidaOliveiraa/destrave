@@ -45,6 +45,20 @@ export default function App() {
   const { content, loading } = useAutoTranslate(baseContent, language)
 
   useEffect(() => {
+    if (currentScreen === 'quiz') {
+      document.body.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.width = '100%'
+      document.body.style.height = '100%'
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
+      document.body.style.height = ''
+    }
+  }, [currentScreen])
+
+  useEffect(() => {
     document.documentElement.lang = language
     writeStorage('language', language)
   }, [language])
@@ -58,12 +72,10 @@ export default function App() {
 
   if (currentScreen === 'quiz') {
     return (
-      <div className="min-h-screen text-zinc-950 bg-slate-50">
-        <QuizScreen 
-          onBack={() => setCurrentScreen('home')} 
-          checkoutUrl={content.hero.checkoutUrl}
-        />
-      </div>
+      <QuizScreen 
+        onBack={() => setCurrentScreen('home')} 
+        checkoutUrl={content.hero.checkoutUrl}
+      />
     )
   }
 

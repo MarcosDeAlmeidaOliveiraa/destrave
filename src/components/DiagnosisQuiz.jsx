@@ -138,9 +138,12 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
   };
 
   return (
-    <div className="flex flex-col h-screen max-h-screen bg-[#efe7de] overflow-hidden md:rounded-[2rem] md:h-[85vh] md:max-w-md md:mx-auto md:shadow-2xl md:border md:border-slate-200">
+    <div className="flex flex-col h-full w-full bg-[#efe7de] overflow-hidden md:h-[85vh] md:max-h-[800px] md:max-w-md md:mx-auto md:shadow-2xl md:border md:border-slate-200 md:rounded-[2rem] md:my-auto">
       {/* Header Estilo WhatsApp */}
-      <div className="flex items-center gap-3 bg-[#075e54] p-3 text-white shadow-md z-10">
+      <div 
+        className="flex items-center gap-3 bg-[#075e54] px-3 pb-3 text-white shadow-md z-10 shrink-0"
+        style={{ paddingTop: 'calc(1.25rem + env(safe-area-inset-top, 0px))' }}
+      >
         {onComplete && (
           <button onClick={onComplete} className="p-1 hover:bg-white/10 rounded-full transition-colors">
             <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
@@ -152,11 +155,11 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
         </div>
         <div className="flex-1 overflow-hidden">
           <h3 className="text-sm font-bold truncate">Daniela Ferrenha</h3>
-          <p className="text-[10px] opacity-80">visto por último hoje às {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+          <p className="text-[10px] opacity-80">Online</p>
         </div>
       </div>
 
-      {/* Chat Area com Fundo de Pattern */}
+      {/* Chat Area */}
       <div 
         ref={scrollRef}
         className="flex-1 overflow-y-auto p-4 flex flex-col gap-2 scroll-smooth"
@@ -202,8 +205,11 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
         )}
       </div>
 
-      {/* Input Area Estilo WhatsApp */}
-      <div className="p-2 bg-[#efe7de] flex items-end gap-2 sticky bottom-0">
+      {/* Input Area - Ajuste fino do padding para o ponto ideal */}
+      <div 
+        className="px-3 pt-3 bg-[#efe7de] flex items-end gap-2 shrink-0 border-t border-black/5"
+        style={{ paddingBottom: 'calc(4rem + env(safe-area-inset-bottom, 0px))' }}
+      >
         {step < quizSteps.length - 1 ? (
           <>
             <div className="flex-1 bg-white rounded-2xl px-4 py-2 shadow-sm flex items-end">
