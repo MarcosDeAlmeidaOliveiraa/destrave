@@ -11,7 +11,7 @@ export function HeroSlider({ slides }) {
           return (
             <section
               key={slide.id ?? (slide.title || slide.title1)}
-              className="relative min-w-[90%] snap-center rounded-[2rem] border border-slate-200 bg-white/80 backdrop-blur-md p-5 text-zinc-950 shadow-xl transition-transform duration-300 ease-out hover:-translate-y-1 sm:min-w-[80%] md:min-w-[85%] md:p-8 lg:min-w-[100%] lg:rounded-[2.5rem]"
+              className="relative w-[88%] shrink-0 snap-center rounded-[2rem] border border-slate-200 bg-white/80 backdrop-blur-md p-6 text-zinc-950 shadow-xl transition-transform duration-300 ease-out hover:-translate-y-1 sm:w-[80%] md:w-[85%] md:p-8 lg:w-full lg:rounded-[2.5rem]"
             >
               <div className="grid gap-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-10">
                 <div className="relative min-h-[300px] overflow-hidden rounded-3xl border border-slate-100 bg-slate-50 sm:min-h-[400px] md:h-full lg:h-[600px]">
@@ -30,10 +30,10 @@ export function HeroSlider({ slides }) {
                   )}
                 </div>
 
-                <div className="flex flex-col gap-3 md:gap-4">
+                <div className="flex flex-col gap-4">
                   {slide.tagline && <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-brand-primary md:text-xs">{slide.tagline}</span>}
                   <div>
-                    <h1 className="text-xl font-extrabold text-zinc-950 sm:text-2xl md:text-4xl lg:text-5xl leading-tight">
+                    <h1 className="text-2xl font-extrabold text-zinc-950 sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
                       {slide.title || (
                         <>
                           <span className="block">{slide.title1}</span>
@@ -41,7 +41,7 @@ export function HeroSlider({ slides }) {
                         </>
                       )}
                     </h1>
-                    {slide.description && <p className="mt-2 text-balance text-sm text-zinc-700 sm:text-base md:mt-3 lg:text-lg">{slide.description}</p>}
+                    {slide.description && <p className="mt-3 text-balance text-sm text-zinc-700 sm:text-base lg:text-lg">{slide.description}</p>}
                   </div>
 
                   {Array.isArray(slide.features) && slide.features.length > 0 && (

@@ -149,7 +149,7 @@ export function DiagnosisQuiz({ checkoutUrl }) {
       {/* Chat Area */}
       <div 
         ref={scrollRef}
-        className="h-[400px] overflow-y-auto bg-slate-50 p-4 scrollbar-hide flex flex-col gap-3 sm:h-[500px] sm:p-6"
+        className="h-[65vh] min-h-[400px] max-h-[600px] overflow-y-auto bg-slate-50 p-4 scrollbar-hide flex flex-col gap-3 sm:p-6"
       >
         {messages.map((m) => (
           <div 

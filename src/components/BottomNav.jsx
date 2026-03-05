@@ -26,7 +26,7 @@ export function BottomNav() {
   }, [])
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-around border-t border-slate-200 bg-white/90 backdrop-blur py-3 text-slate-400 md:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-around border-t border-slate-200 bg-white/90 backdrop-blur py-3 text-slate-400 md:hidden" style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom, 0px))' }}>
       {navItems.map(({ href, icon: Icon }) => (
   <a key={href} href={href} className={`flex flex-1 flex-col items-center text-sm transition ${active === href ? 'text-brand-primary' : 'text-slate-400 hover:text-brand-primary'}`}>
           <Icon className="text-xl" />

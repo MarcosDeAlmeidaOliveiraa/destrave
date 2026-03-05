@@ -11,7 +11,7 @@ export function FloatingActions() {
   ]
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4 md:bottom-8">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4 md:bottom-8" style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}>
       {links.map((link) => (
         <a
           key={link.label}

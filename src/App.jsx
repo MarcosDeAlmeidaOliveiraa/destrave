@@ -69,14 +69,14 @@ export default function App() {
         />
       </div>
 
-      <main className="space-y-8 md:space-y-16">
+      <main className="space-y-16 md:space-y-32">
         <HomeScreen
           slides={content.hero.slides}
           ctaLink={content.hero.ctaLink}
           checkoutUrl={content.hero.checkoutUrl}
           offer={content.limitedOffer}
         />
-        <div className="space-y-12 md:space-y-24">
+        <div className="space-y-20 md:space-y-40">
           <SalesSections sales={content.sales} />
           <ContactScreen contact={content.contact} />
         </div>
