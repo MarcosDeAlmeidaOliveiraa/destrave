@@ -185,7 +185,7 @@ export function DiagnosisQuiz({ checkoutUrl }) {
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             placeholder={step === 0 ? "Digite seu nome..." : "Responda com 1, 2, 3 ou 4..."}
-            className="flex-1 bg-slate-100 rounded-full px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/20 sm:text-base sm:py-4"
+            className="flex-1 bg-slate-100 rounded-full px-5 py-3 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary/20 sm:py-4"
           />
           <button 
             onClick={handleSend}
