@@ -3,7 +3,7 @@ export function HeroSlider({ slides }) {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 py-2 scrollbar-hide md:gap-6 md:px-6">
+      <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto py-2 scrollbar-hide md:gap-6 justify-center">
         {slides.map((slide) => {
           const displayPrice = isBRL && slide.price?.brl ? slide.price.brl.main : slide.price?.main;
           const displayOldPrice = isBRL && slide.price?.brl ? slide.price.brl.oldPrice : slide.price?.oldPrice;
@@ -11,7 +11,7 @@ export function HeroSlider({ slides }) {
           return (
             <section
               key={slide.id ?? (slide.title || slide.title1)}
-              className="relative w-[88%] shrink-0 snap-center rounded-[2rem] border border-slate-200 bg-white/80 backdrop-blur-md p-6 text-zinc-950 shadow-xl transition-transform duration-300 ease-out hover:-translate-y-1 sm:w-[80%] md:w-[85%] md:p-8 lg:w-full lg:rounded-[2.5rem]"
+              className="relative w-full shrink-0 snap-center rounded-2xl border border-slate-200 bg-white/80 backdrop-blur-md p-6 text-zinc-950 shadow-xl transition-transform duration-300 ease-out hover:-translate-y-1 sm:p-8 md:rounded-3xl md:p-10 lg:p-12"
             >
               <div className="grid gap-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-10">
                 <div className="relative min-h-[300px] overflow-hidden rounded-3xl border border-slate-100 bg-slate-50 sm:min-h-[400px] md:h-full lg:h-[600px]">
