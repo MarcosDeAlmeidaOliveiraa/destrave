@@ -44,7 +44,7 @@ export const baseContent = {
       }
     ],
     ctaLink: '#diagnosis',
-    checkoutUrl: 'https://pay.kiwify.com.br/DFb06bi'
+    checkoutUrl: 'https://danielaferrenhamove.com.br/finalizar.php'
   },
   sales: {
     templates: {
@@ -116,7 +116,7 @@ export const baseContent = {
       title: 'Comece sua transformação hoje',
       text: 'Ao garantir sua cópia agora, você recebe acesso vitalício ao E-book completo + Acesso aos vídeos do Desafio de 30 Dias.',
       buttonLabel: 'COMPRAR AGORA',
-      buttonHref: 'https://pay.kiwify.com.br/DFb06bi',
+      buttonHref: 'https://danielaferrenhamove.com.br/finalizar.php',
       note: 'Pagamento único e seguro via Checkout.'
     },
     testimonials: {
@@ -153,6 +153,20 @@ export const baseContent = {
       description: 'Dúvidas sobre o método ou acesso? Entre em contato:',
       email: 'suporte@danielaferrenha.com.br',
       responseTime: '© 2026 Daniela Ferrenha. Todos os direitos reservados.'
+    },
+    secondaryCta: {
+      id: 'cta-secondary',
+      title: 'Não perca esta oportunidade',
+      text: 'Garanta sua vaga agora mesmo pelo preço promocional.',
+      buttonLabel: 'COMPRAR AGORA',
+      buttonHref: 'https://danielaferrenhamove.com.br/finalizar.php'
+    },
+    finalCta: {
+      id: 'cta-final',
+      title: 'Pronta para o próximo nível?',
+      text: 'Clique abaixo e inicie sua jornada.',
+      buttonLabel: 'QUERO COMEÇAR',
+      buttonHref: 'https://danielaferrenhamove.com.br/finalizar.php'
     }
   },
   contact: {

@@ -45,8 +45,15 @@ export function HomeScreen({ slides, ctaLink, checkoutUrl, onStartQuiz, loading 
         </div>
       </div>
 
-      {/* Diagnosis Quiz Section - Agora com botão para tela dedicada */}
-      <div id="diagnosis" className="mt-20 px-4 sm:px-6 md:mt-32 md:px-8 lg:mt-48">
+      {/* Additional Content / Slider Section (Card com valor do curso) */}
+      <div className="mt-16 px-4 sm:px-6 md:mt-32 md:px-8">
+        <div className="mx-auto max-w-5xl">
+           <HeroSlider slides={sliderSlides} />
+        </div>
+      </div>
+
+      {/* Diagnosis Quiz Section - Agora abaixo do card de preço */}
+      <div id="diagnosis" className="mt-20 px-4 pb-12 sm:px-6 md:mt-32 md:px-8 md:pb-24 lg:mt-48">
         <div className="text-center mb-12 md:mb-20">
            <h2 className="text-2xl font-black text-zinc-900 sm:text-4xl md:text-6xl">Faça seu Diagnóstico</h2>
            <p className="mt-4 text-base text-slate-500 font-medium sm:text-lg md:mt-6">Identifique os padrões subconscientes que estão travando sua prosperidade.</p>
@@ -66,13 +73,6 @@ export function HomeScreen({ slides, ctaLink, checkoutUrl, onStartQuiz, loading 
                 Leva apenas 2 minutos • 100% Privado
               </p>
            </div>
-        </div>
-      </div>
-
-      {/* Additional Content / Slider Section */}
-      <div className="mt-16 space-y-8 px-4 pb-12 sm:px-6 md:mt-32 md:space-y-16 md:px-8 md:pb-24">
-        <div className="mx-auto max-w-5xl">
-           <HeroSlider slides={sliderSlides} />
         </div>
       </div>
     </section>
