@@ -12,35 +12,64 @@ export function HomeScreen({ slides, ctaLink, checkoutUrl, onStartQuiz, loading 
   const primaryDescription = primarySlide.description ?? 'Transforme sua realidade com o Método Destrave.'
 
   return (
-    <section id="home" className="relative text-zinc-950">
-      {/* Top Banner Image - Revertido para visibilidade total e tamanho original */}
-      <div className="relative w-full overflow-hidden">
-        <img
-          src={coverImage}
-          alt="Main Cover"
-          className="w-full h-auto block mx-auto max-h-[70vh] object-contain md:max-h-[85vh]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent pointer-events-none"></div>
-      </div>
+    <section id="home" className="relative text-zinc-950 pt-10 sm:pt-16">
+      {/* Main Content Card - Premium High-Converting Design */}
+      <div className="relative z-10 px-4 sm:px-6 md:px-8">
+        <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-brand-dark shadow-luxury border border-white/10 sm:rounded-[3rem] lg:rounded-[4rem] relative">
+          
+          {/* Background effects */}
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 mix-blend-overlay"></div>
+          <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-brand-secondary/40 blur-[100px] pointer-events-none"></div>
+          <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-brand-accent/20 blur-[100px] pointer-events-none"></div>
 
-      {/* Main Content Card - Sobreposição elegante e responsiva */}
-      <div className="relative z-10 -mt-20 px-4 sm:px-6 md:-mt-32 md:px-8 lg:-mt-48">
-        <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 mx-auto max-w-5xl rounded-[2.5rem] border border-slate-100 bg-white/80 backdrop-blur-xl p-8 shadow-[0_25px_60px_rgba(0,0,0,0.15)] sm:p-12 md:rounded-[4rem] md:p-20">
-          <div className="text-center">
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-4 py-1.5 text-[10px] font-extrabold uppercase tracking-widest text-brand-primary md:mb-10 md:px-8 md:py-3 md:text-sm">
-              {primarySlide.badge ?? '✨ MÉTODO EXCLUSIVO'}
-            </span>
+          <div className="relative z-10 grid gap-10 px-6 py-12 sm:px-12 sm:py-16 md:grid-cols-2 md:items-center md:gap-16 md:px-16 md:py-24 lg:p-24">
             
-            <h1 className="text-3xl font-[900] leading-[1.1] tracking-tight text-zinc-900 sm:text-5xl md:text-7xl lg:text-8xl">
-              {primarySlide.title1} <br />
-              <span className="italic text-brand-primary drop-shadow-sm">
-                {primarySlide.title2}
-              </span>
-            </h1>
-            
-            <p className="mx-auto mt-8 max-w-3xl text-base font-medium leading-relaxed text-zinc-600 sm:text-xl md:mt-12 md:text-2xl lg:text-3xl">
-              {primaryDescription}
-            </p>
+            {/* Text Column */}
+            <div className="text-center md:text-left flex flex-col justify-center">
+              <div className="mb-6 flex justify-center md:justify-start">
+                <span className="inline-flex items-center gap-2 rounded-full border border-brand-accent/30 bg-brand-accent/10 px-4 py-1.5 text-[10px] font-extrabold uppercase tracking-widest text-brand-accent shadow-[0_0_15px_rgba(245,158,11,0.2)] md:mb-8 md:px-6 md:py-2.5 md:text-xs">
+                  <span className="h-2 w-2 rounded-full bg-brand-accent animate-pulse"></span>
+                  {primarySlide.badge ?? '✨ MÉTODO EXCLUSIVO'}
+                </span>
+              </div>
+              
+              <h1 className="text-3xl font-[900] leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+                {primarySlide.title1} <br className="hidden sm:block" />
+                <span className="mt-2 block bg-gradient-to-r from-brand-accent to-yellow-200 bg-clip-text text-transparent drop-shadow-sm pb-2">
+                  {primarySlide.title2}
+                </span>
+              </h1>
+              
+              <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-relaxed text-white/80 sm:text-lg md:mx-0 md:mt-8 md:text-xl lg:text-2xl">
+                {primaryDescription}
+              </p>
+
+              <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+                  <button 
+                    onClick={() => {
+                      document.getElementById('diagnosis')?.scrollIntoView({ behavior: 'smooth' });
+                      onStartQuiz();
+                    }}
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-gold-gradient px-8 py-4 text-sm font-black uppercase tracking-widest text-brand-dark shadow-gold-glow transition-all duration-300 hover:scale-105 hover:brightness-110 active:scale-95 animate-pulse-slow md:px-10 md:py-5 md:text-base"
+                  >
+                    Quero Me Destravar
+                  </button>
+              </div>
+            </div>
+
+            {/* Image Column */}
+            <div className="relative flex justify-center md:justify-end">
+              <div className="relative w-full max-w-[280px] sm:max-w-[380px] lg:max-w-[480px]">
+                {/* Glow behind image */}
+                <div className="absolute inset-0 rounded-full bg-brand-accent/20 blur-[60px] transform scale-75"></div>
+                <img
+                  src={coverImage}
+                  alt="Destrave Method Cover"
+                  className="relative z-10 h-auto w-full object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.5)] transform transition-transform duration-700 hover:scale-105 hover:rotate-2"
+                />
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

@@ -6,7 +6,6 @@ import { HomeScreen } from './screens/Home'
 import { QuizScreen } from './screens/Quiz'
 import { SalesSections } from './components/SalesSections'
 import { Footer } from './components/Footer'
-import { ContactScreen } from './screens/Contact'
 import { baseContent, languages } from './data/content'
 import { FloatingActions } from './components/FloatingActions'
 import { useAutoTranslate } from './hooks/useAutoTranslate'
@@ -68,8 +67,6 @@ export default function App() {
     writeStorage('showBanner', false)
   }
 
-  const navLabels = useMemo(() => content.nav, [content])
-
   if (currentScreen === 'quiz') {
     return (
       <QuizScreen 
@@ -85,13 +82,7 @@ export default function App() {
         {showBanner && content.limitedOffer && (
           <TopBanner offer={content.limitedOffer} onDismiss={handleDismissBanner} />
         )}
-        <Header
-          labels={navLabels}
-          languages={languages}
-          currentLanguage={language}
-          onSelectLanguage={setLanguage}
-          loading={loading}
-        />
+        <Header />
       </div>
 
       <main className="space-y-16 md:space-y-32">
@@ -101,9 +92,8 @@ export default function App() {
           checkoutUrl={content.hero.checkoutUrl}
           onStartQuiz={() => setCurrentScreen('quiz')}
         />
-        <div className="space-y-20 md:space-y-40">
+        <div className="space-y-20 md:space-y-40 pb-20">
           <SalesSections sales={content.sales} />
-          <ContactScreen contact={content.contact} />
         </div>
       </main>
 

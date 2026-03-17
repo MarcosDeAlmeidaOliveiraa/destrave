@@ -1,30 +1,17 @@
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa6'
+import { FiShoppingCart } from 'react-icons/fi'
 
 export function FloatingActions() {
-  const whatsappMessage = encodeURIComponent("Olá! Tenho uma dúvida sobre o Método Destrave.");
-  const links = [
-    {
-      label: 'WhatsApp',
-      url: `https://wa.me/353834694919?text=${whatsappMessage}`,
-      icon: FaWhatsapp,
-      color: 'bg-[#25D366]',
-    }
-  ]
-
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4 md:bottom-8" style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}>
-      {links.map((link) => (
         <a
-          key={link.label}
-          href={link.url}
+          href="https://danielaferrenhamove.com.br/finalizar.php"
           target="_blank"
           rel="noreferrer"
-          className={`${link.color} flex h-14 w-14 items-center justify-center rounded-full text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:rotate-6 active:scale-95`}
-          aria-label={link.label}
+          className="flex h-16 w-16 items-center justify-center rounded-full bg-gold-gradient text-brand-dark shadow-gold-glow transition-all duration-300 hover:scale-110 hover:brightness-110 active:scale-95 animate-pulse-slow"
+          aria-label="Comprar Agora"
         >
-          <link.icon className="text-3xl" />
+          <FiShoppingCart className="text-3xl" />
         </a>
-      ))}
     </div>
   )
 }

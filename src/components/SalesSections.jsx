@@ -28,7 +28,7 @@ const iconMap = {
 }
 
 const Section = ({ id, title, eyebrow, children }) => (
-  <section id={id} className="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur-md p-6 shadow-sm sm:p-8 md:rounded-3xl md:p-10 lg:p-12">
+  <section id={id} className="rounded-[2rem] border-2 border-brand-accent/40 bg-white/80 backdrop-blur-md p-6 shadow-sm transition-all hover:border-brand-accent/60 sm:p-8 md:rounded-[3rem] md:p-10 lg:p-12">
     {eyebrow ? (
   <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-brand-primary md:text-xs">{eyebrow}</p>
     ) : null}

@@ -13,7 +13,7 @@ export function HeroSlider({ slides }) {
           return (
             <section
               key={slide.id ?? (slide.title || slide.title1)}
-              className="relative w-full shrink-0 snap-center rounded-[2.5rem] bg-gradient-to-br from-white via-slate-50 to-purple-50/30 p-6 text-zinc-950 shadow-[0_20px_50px_-12px_rgba(107,33,168,0.25)] border border-brand-primary/10 transition-transform duration-500 ease-out hover:-translate-y-2 sm:p-10 md:rounded-[3.5rem] lg:p-14"
+              className="relative w-full shrink-0 snap-center rounded-[2.5rem] bg-gradient-to-br from-white via-slate-50 to-purple-50/30 p-6 text-zinc-950 shadow-[0_20px_50px_-12px_rgba(107,33,168,0.25)] border-2 border-brand-accent transition-transform duration-500 ease-out hover:-translate-y-2 sm:p-10 md:rounded-[3.5rem] lg:p-14"
             >
               {/* Badge Flutuante */}
               {slide.badge && (

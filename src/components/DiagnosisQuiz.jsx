@@ -257,7 +257,7 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
             </button>
           </>
         ) : (
-          <div className="w-full p-6 bg-white rounded-2xl shadow-luxury border-2 border-brand-accent/50 text-center animate-in zoom-in-95 duration-300">
+          <div className="w-full p-6 bg-white rounded-2xl shadow-luxury border-2 border-brand-accent text-center animate-in zoom-in-95 duration-300">
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600">
                 <FiCheckCircle className="h-6 w-6" />
               </div>
