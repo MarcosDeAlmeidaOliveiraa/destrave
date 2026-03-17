@@ -22,10 +22,10 @@ export const baseContent = {
       {
         id: 'destrave-principal',
         badge: '🚨 VAGAS LIMITADAS PARA O DESAFIO',
-        title1: 'Por que algumas pessoas prosperam sem esforço',
-        title2: 'enquanto você continua travada?',
+        title1: 'Descubra o código invisível que trava',
+        title2: 'o seu dinheiro e os seus relacionamentos',
         tagline: 'O Segredo Revelado',
-        description: 'Descubra como limpar o "lixo mental" que está sabotando seu sucesso financeiro e amoroso. Pare de tentar forçar a Lei da Atração e comece a manifestar no automático.',
+        description: 'Chega de tentar "pensar positivo" e não ver nada mudar. Existe uma sujeira silenciosa no seu subconsciente bloqueando a sua vida. Aprenda a limpar isso hoje e veja os resultados aparecerem nesta mesma semana.',
         price: {
           main: 'R$ 47,90',
           oldPrice: 'R$ 297,00',
@@ -110,6 +110,17 @@ export const baseContent = {
         'Torne-se magnética para relacionamentos saudáveis',
         'Recupere o controle absoluto sobre a sua realidade'
       ]
+    },
+    comparison: {
+      title: 'Por que o Destrave é diferente?',
+      left: {
+        title: 'Outros Métodos',
+        items: ['Teoria vazia e complicada', 'Foco apenas em "pensar positivo"', 'Resultados que demoram meses', 'Você se sente sozinha e perdida']
+      },
+      right: {
+        title: 'Método Destrave',
+        items: ['Protocolo prático e direto', 'Limpeza profunda do subconsciente', 'Mudança vibracional imediata', 'Desafio de 30 dias com guia real']
+      }
     },
     primaryCta: {
       id: 'cta-primary',

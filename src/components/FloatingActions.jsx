@@ -1,10 +1,11 @@
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa6'
 
 export function FloatingActions() {
+  const whatsappMessage = encodeURIComponent("Olá! Tenho uma dúvida sobre o Método Destrave.");
   const links = [
     {
       label: 'WhatsApp',
-      url: 'https://wa.me/353834694919',
+      url: `https://wa.me/353834694919?text=${whatsappMessage}`,
       icon: FaWhatsapp,
       color: 'bg-[#25D366]',
     }

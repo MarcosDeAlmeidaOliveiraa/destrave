@@ -102,6 +102,34 @@ const CtaCard = ({ id, title, text, buttonLabel, buttonHref = '#checkout', note 
   </section>
 )
 
+const ComparisonTable = ({ data }) => (
+  <div className="grid gap-6 md:grid-cols-2">
+    <div className="rounded-3xl border border-slate-200 bg-white p-8 opacity-60">
+      <h3 className="text-xl font-bold text-slate-400 uppercase tracking-widest mb-6">{data.left.title}</h3>
+      <ul className="space-y-4">
+        {data.left.items.map((item, i) => (
+          <li key={i} className="flex items-center gap-3 text-slate-500 line-through decoration-slate-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-300 shrink-0" />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div className="rounded-3xl border-2 border-brand-accent bg-brand-primary/5 p-8 shadow-luxury relative overflow-hidden">
+      <div className="absolute top-0 right-0 bg-brand-accent text-brand-dark text-[10px] font-black px-4 py-1 rounded-bl-xl uppercase tracking-widest">Recomendado</div>
+      <h3 className="text-xl font-black text-brand-primary uppercase tracking-widest mb-6">{data.right.title}</h3>
+      <ul className="space-y-4">
+        {data.right.items.map((item, i) => (
+          <li key={i} className="flex items-center gap-3 text-brand-dark font-bold">
+            <FiCheckCircle className="text-brand-accent shrink-0" />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+)
+
 export function SalesSections({ sales }) {
   if (!sales) return null
   const {
@@ -110,6 +138,7 @@ export function SalesSections({ sales }) {
     solution,
     product,
     benefits,
+    comparison,
     differentiators,
     primaryCta,
     testimonials,
@@ -153,6 +182,12 @@ export function SalesSections({ sales }) {
           {solution.paragraphs.map((text, index) => (
             <p key={index}>{text}</p>
           ))}
+        </Section>
+      ) : null}
+
+      {comparison ? (
+        <Section title={comparison.title} id="comparison" eyebrow="🚀 A Diferença Real">
+          <ComparisonTable data={comparison} />
         </Section>
       ) : null}
 
