@@ -1,6 +1,6 @@
 import { FiShield, FiZap, FiLock, FiCheckCircle } from 'react-icons/fi';
 
-export function HeroSlider({ slides }) {
+export function HeroSlider({ slides, onCheckout }) {
   const isBRL = typeof document !== 'undefined' && document.documentElement.lang === 'pt';
 
   return (
@@ -50,14 +50,13 @@ export function HeroSlider({ slides }) {
                   )}
 
                   <div className="mt-4">
-                    <a
-                      href={slide.ctaLink ?? '#courses'}
-                      target={(slide.ctaLink ?? '').startsWith('#') ? '_self' : '_blank'}
-                      rel="noreferrer"
+                    <button
+                      onClick={onCheckout}
                       className="animate-pulse-slow inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold-gradient px-8 py-5 text-base font-black uppercase tracking-wider text-brand-dark shadow-gold-glow transition-all duration-300 hover:scale-105 hover:brightness-110 md:px-12 md:py-6 md:text-lg"
                     >
                       {slide.cta}
-                    </a>
+                    </button>
+
                     
                     {/* Trust Bar */}
                     <div className="mt-6 flex flex-wrap items-center justify-center gap-4 border-t border-slate-100 pt-6">

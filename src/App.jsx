@@ -3,6 +3,8 @@ import { Header } from './components/Header'
 import { TopBanner } from './components/TopBanner'
 import { HomeScreen } from './screens/Home'
 import { QuizScreen } from './screens/Quiz'
+import { CheckoutScreen } from './screens/Checkout'
+import { CourseScreen } from './screens/Course'
 import { SalesSections } from './components/SalesSections'
 import { Footer } from './components/Footer'
 import { baseContent } from './data/content'
@@ -26,11 +28,15 @@ const writeStorage = (key, value) => {
 
 export default function App() {
   const [showBanner, setShowBanner] = useState(() => readStorage('showBanner', true))
-  const [currentScreen, setCurrentScreen] = useState('home') // 'home' | 'quiz'
+  const [currentScreen, setCurrentScreen] = useState('home') // 'home' | 'quiz' | 'checkout' | 'course'
 
   const content = baseContent
 
   useEffect(() => {
+    if (currentScreen === 'quiz' || currentScreen === 'checkout' || currentScreen === 'course') {
+      window.scrollTo(0, 0);
+    }
+    
     if (currentScreen === 'quiz') {
       document.body.style.overflow = 'hidden'
       document.body.style.position = 'fixed'
@@ -53,7 +59,25 @@ export default function App() {
     return (
       <QuizScreen 
         onBack={() => setCurrentScreen('home')} 
-        checkoutUrl={content.hero.checkoutUrl}
+        onComplete={() => setCurrentScreen('checkout')}
+      />
+    )
+  }
+
+  if (currentScreen === 'checkout') {
+    return (
+      <CheckoutScreen 
+        content={content}
+        onBack={() => setCurrentScreen('home')}
+        onSuccess={() => setCurrentScreen('course')}
+      />
+    )
+  }
+
+  if (currentScreen === 'course') {
+    return (
+      <CourseScreen 
+        onBack={() => setCurrentScreen('home')}
       />
     )
   }
@@ -64,23 +88,22 @@ export default function App() {
         {showBanner && content.limitedOffer && (
           <TopBanner offer={content.limitedOffer} onDismiss={handleDismissBanner} />
         )}
-        <Header />
+        <Header onCheckout={() => setCurrentScreen('checkout')} />
       </div>
 
       <main className="space-y-16 md:space-y-32">
         <HomeScreen
           slides={content.hero.slides}
-          ctaLink={content.hero.ctaLink}
-          checkoutUrl={content.hero.checkoutUrl}
           onStartQuiz={() => setCurrentScreen('quiz')}
+          onCheckout={() => setCurrentScreen('checkout')}
         />
         <div className="space-y-20 md:space-y-40 pb-20">
-          <SalesSections sales={content.sales} />
+          <SalesSections sales={content.sales} onCheckout={() => setCurrentScreen('checkout')} />
         </div>
       </main>
 
       <Footer footer={content.footer} />
-      <FloatingActions />
+      <FloatingActions onCheckout={() => setCurrentScreen('checkout')} />
     </div>
   )
 }

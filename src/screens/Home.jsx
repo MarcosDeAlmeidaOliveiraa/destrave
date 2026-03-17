@@ -2,11 +2,9 @@ import { HeroSlider } from '../components/HeroSlider'
 import { DiagnosisQuiz } from '../components/DiagnosisQuiz'
 import coverImage from '../images/imagemPrincipal.png'
 
-export function HomeScreen({ slides, ctaLink, checkoutUrl, onStartQuiz, loading }) {
+export function HomeScreen({ slides, onStartQuiz, onCheckout, loading }) {
   const sliderSlides = slides.map((slide) => ({ 
-    ...slide, 
-    ctaLink: slide.ctaLink ?? ctaLink ?? '#courses',
-    checkoutUrl: slide.checkoutUrl ?? checkoutUrl ?? '#checkout'
+    ...slide
   }))
   const primarySlide = sliderSlides[0] ?? {}
   const primaryDescription = primarySlide.description ?? 'Transforme sua realidade com o Método Destrave.'
@@ -77,7 +75,7 @@ export function HomeScreen({ slides, ctaLink, checkoutUrl, onStartQuiz, loading 
       {/* Additional Content / Slider Section (Card com valor do curso) */}
       <div className="mt-16 px-4 sm:px-6 md:mt-32 md:px-8">
         <div className="mx-auto max-w-5xl">
-           <HeroSlider slides={sliderSlides} />
+           <HeroSlider slides={sliderSlides} onCheckout={onCheckout} />
         </div>
       </div>
 
@@ -98,14 +96,12 @@ export function HomeScreen({ slides, ctaLink, checkoutUrl, onStartQuiz, loading 
                 <span className="relative z-10">Iniciar Diagnóstico Grátis</span>
               </button>
 
-              <a 
-                href={checkoutUrl}
-                target="_blank"
-                rel="noreferrer"
+              <button 
+                onClick={onCheckout}
                 className="group relative inline-flex items-center justify-center rounded-full border-2 border-brand-primary bg-white px-10 py-5 text-lg font-black uppercase tracking-widest text-brand-primary transition-all duration-300 hover:bg-brand-primary hover:text-white active:scale-95 sm:px-16 sm:py-6 sm:text-xl"
               >
                 <span className="relative z-10">Comprar Curso Agora</span>
-              </a>
+              </button>
            </div>
            <p className="mt-6 text-sm font-bold uppercase tracking-tighter text-brand-primary opacity-70">
               Leva apenas 2 minutos • 100% Privado

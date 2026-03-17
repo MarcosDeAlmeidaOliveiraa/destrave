@@ -85,19 +85,17 @@ const FAQList = ({ items }) => (
   </div>
 )
 
-const CtaCard = ({ id, title, text, buttonLabel, buttonHref = '#checkout', note }) => (
+const CtaCard = ({ id, title, text, buttonLabel, onCheckout, note }) => (
   <section id={id} className="rounded-[2.5rem] border border-brand-accent/30 bg-premium-gradient p-8 text-center shadow-luxury text-white sm:p-12 md:p-16 lg:p-20 relative overflow-hidden">
     <div className="absolute top-0 right-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-brand-secondary/30 blur-3xl mix-blend-screen pointer-events-none" />
     <h2 className="relative z-10 text-3xl font-black sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-md">{title}</h2>
     <p className="relative z-10 mt-6 text-lg font-medium opacity-95 sm:text-xl md:text-2xl">{text}</p>
-    <a
-      href={buttonHref}
-      target="_blank"
-      rel="noreferrer"
+    <button
+      onClick={onCheckout}
       className="relative z-10 mt-10 inline-flex items-center justify-center rounded-full bg-gold-gradient px-8 py-4 text-base font-black uppercase tracking-wider text-brand-dark shadow-gold-glow transition-all duration-300 hover:scale-105 hover:brightness-110 sm:px-10 sm:py-5 md:px-12 md:py-6 md:text-lg animate-pulse-slow"
     >
       {buttonLabel}
-    </a>
+    </button>
     {note ? <p className="relative z-10 mt-6 text-[11px] font-bold uppercase tracking-widest text-white/80 sm:text-xs">{note}</p> : null}
   </section>
 )
@@ -130,7 +128,7 @@ const ComparisonTable = ({ data }) => (
   </div>
 )
 
-export function SalesSections({ sales }) {
+export function SalesSections({ sales, onCheckout }) {
   if (!sales) return null
   const {
     templates,
@@ -216,7 +214,7 @@ export function SalesSections({ sales }) {
           title={primaryCta.title}
           text={primaryCta.text}
           buttonLabel={primaryCta.buttonLabel}
-          buttonHref={primaryCta.buttonHref}
+          onCheckout={onCheckout}
           note={primaryCta.note}
         />
       ) : null}
@@ -247,7 +245,7 @@ export function SalesSections({ sales }) {
           title={secondaryCta.title}
           text={secondaryCta.text}
           buttonLabel={secondaryCta.buttonLabel}
-          buttonHref={secondaryCta.buttonHref}
+          onCheckout={onCheckout}
           note={secondaryCta.note}
         />
       ) : null}
@@ -303,7 +301,7 @@ export function SalesSections({ sales }) {
           title={finalCta.title}
           text={finalCta.text}
           buttonLabel={finalCta.buttonLabel}
-          buttonHref={finalCta.buttonHref}
+          onCheckout={onCheckout}
           note={finalCta.note}
         />
       ) : null}
