@@ -58,21 +58,29 @@ export function HomeScreen({ slides, ctaLink, checkoutUrl, onStartQuiz, loading 
            <h2 className="text-2xl font-black text-zinc-900 sm:text-4xl md:text-6xl">Faça seu Diagnóstico</h2>
            <p className="mt-4 text-base text-slate-500 font-medium sm:text-lg md:mt-6">Identifique os padrões subconscientes que estão travando sua prosperidade.</p>
            
-           <div className="mt-10 md:mt-16">
+           <div className="mt-10 flex flex-col items-center justify-center gap-4 md:mt-16 md:flex-row md:gap-8">
               <button 
                 onClick={() => {
                   window.scrollTo(0, 0);
                   onStartQuiz();
                 }}
-                className="group relative inline-flex items-center justify-center rounded-full bg-brand-primary px-10 py-5 text-lg font-black uppercase tracking-widest text-white shadow-[0_20px_50px_rgba(139,92,246,0.3)] transition-all duration-300 hover:scale-105 hover:bg-brand-dark active:scale-95 sm:px-16 sm:py-6 sm:text-xl"
+                className="group relative inline-flex items-center justify-center rounded-full bg-gold-gradient px-10 py-5 text-lg font-black uppercase tracking-widest text-brand-dark shadow-gold-glow transition-all duration-300 hover:scale-105 hover:brightness-110 active:scale-95 sm:px-16 sm:py-6 sm:text-xl animate-pulse-slow"
               >
                 <span className="relative z-10">Iniciar Diagnóstico Grátis</span>
-                <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 transition-opacity group-hover:opacity-100"></div>
               </button>
-              <p className="mt-6 text-sm font-bold uppercase tracking-tighter text-brand-primary opacity-70">
-                Leva apenas 2 minutos • 100% Privado
-              </p>
+
+              <a 
+                href={checkoutUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group relative inline-flex items-center justify-center rounded-full border-2 border-brand-primary bg-white px-10 py-5 text-lg font-black uppercase tracking-widest text-brand-primary transition-all duration-300 hover:bg-brand-primary hover:text-white active:scale-95 sm:px-16 sm:py-6 sm:text-xl"
+              >
+                <span className="relative z-10">Comprar Curso Agora</span>
+              </a>
            </div>
+           <p className="mt-6 text-sm font-bold uppercase tracking-tighter text-brand-primary opacity-70">
+              Leva apenas 2 minutos • 100% Privado
+           </p>
         </div>
       </div>
     </section>

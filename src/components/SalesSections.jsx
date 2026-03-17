@@ -86,18 +86,19 @@ const FAQList = ({ items }) => (
 )
 
 const CtaCard = ({ id, title, text, buttonLabel, buttonHref = '#checkout', note }) => (
-  <section id={id} className="rounded-[2.5rem] border border-white/10 bg-premium-gradient p-8 text-center shadow-2xl text-white sm:p-12 md:p-16 lg:p-20">
-    <h2 className="text-2xl font-bold sm:text-3xl md:text-5xl lg:text-6xl">{title}</h2>
-    <p className="mt-4 text-base opacity-90 sm:text-lg md:text-xl lg:text-2xl">{text}</p>
+  <section id={id} className="rounded-[2.5rem] border border-brand-accent/30 bg-premium-gradient p-8 text-center shadow-luxury text-white sm:p-12 md:p-16 lg:p-20 relative overflow-hidden">
+    <div className="absolute top-0 right-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-brand-secondary/30 blur-3xl mix-blend-screen pointer-events-none" />
+    <h2 className="relative z-10 text-3xl font-black sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-md">{title}</h2>
+    <p className="relative z-10 mt-6 text-lg font-medium opacity-95 sm:text-xl md:text-2xl">{text}</p>
     <a
       href={buttonHref}
       target="_blank"
       rel="noreferrer"
-      className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-black uppercase text-brand-primary shadow-xl transition-all duration-300 hover:scale-105 hover:bg-slate-50 sm:px-10 sm:py-5 md:px-12 md:py-6 md:text-base"
+      className="relative z-10 mt-10 inline-flex items-center justify-center rounded-full bg-gold-gradient px-8 py-4 text-base font-black uppercase tracking-wider text-brand-dark shadow-gold-glow transition-all duration-300 hover:scale-105 hover:brightness-110 sm:px-10 sm:py-5 md:px-12 md:py-6 md:text-lg animate-pulse-slow"
     >
       {buttonLabel}
     </a>
-    {note ? <p className="mt-6 text-[10px] font-bold uppercase tracking-widest text-white/70 sm:text-xs">{note}</p> : null}
+    {note ? <p className="relative z-10 mt-6 text-[11px] font-bold uppercase tracking-widest text-white/80 sm:text-xs">{note}</p> : null}
   </section>
 )
 
@@ -158,7 +159,7 @@ export function SalesSections({ sales }) {
       {product ? (
         <Section id="produto" title={product.title}>
           <FeatureGrid items={product.items} />
-          {product.note ? <p className="text-sm text-slate-400">{product.note}</p> : null}
+          {product.note ? <p className="text-sm font-bold text-brand-primary text-center mt-6">{product.note}</p> : null}
         </Section>
       ) : null}
 
@@ -223,14 +224,35 @@ export function SalesSections({ sales }) {
       ) : null}
 
       {guarantee ? (
-        <Section id="garantia" title={guarantee.title}>
-          <p>{guarantee.text}</p>
-        </Section>
+        <section id="garantia" className="relative overflow-hidden rounded-[2.5rem] border-2 border-brand-accent/50 bg-white p-8 shadow-luxury sm:p-12 md:p-16">
+          <div className="absolute -right-12 -top-12 h-64 w-64 rounded-full bg-brand-primary/5 blur-3xl" />
+          <div className="relative flex flex-col items-center gap-8 text-center md:flex-row md:text-left">
+            <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-gold-gradient shadow-gold-glow md:h-40 md:w-40">
+               <FiHelpCircle className="h-16 w-16 text-brand-dark md:h-20 md:w-20" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-black text-slate-900 sm:text-3xl md:text-4xl">{guarantee.title}</h2>
+              <p className="mt-4 text-base font-medium leading-relaxed text-slate-700 sm:text-lg md:text-xl">{guarantee.text}</p>
+            </div>
+          </div>
+        </section>
       ) : null}
 
       {bonuses ? (
-        <Section id="bonus" title={bonuses.title}>
-          <BulletList items={bonuses.bullets} />
+        <Section id="bonus" title={bonuses.title} eyebrow="✨ Presentes Exclusivos">
+          <div className="grid gap-4">
+            {bonuses.bullets.map((item, index) => {
+              const Icon = iconMap[item.icon ?? 'check'] ?? FiCheckCircle
+              return (
+                <div key={index} className="flex items-center gap-4 rounded-2xl border-2 border-dashed border-brand-primary/30 bg-brand-primary/5 p-6 transition-all hover:bg-brand-primary/10">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-primary text-white">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <span className="text-base font-bold text-slate-800 sm:text-lg md:text-xl">{item.text}</span>
+                </div>
+              )
+            })}
+          </div>
         </Section>
       ) : null}
 

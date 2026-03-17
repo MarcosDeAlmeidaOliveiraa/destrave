@@ -21,26 +21,26 @@ export const baseContent = {
     slides: [
       {
         id: 'destrave-principal',
-        badge: '✨ MÉTODO EXCLUSIVO',
-        title1: 'Alinhe sua Mente e Energia para',
-        title2: 'Criar a Realidade que Você Deseja',
-        tagline: 'Daniela Ferrenha',
-        description: 'Descubra como eliminar os bloqueios invisíveis que travam sua vida e ative o poder da Lei da Atração com um passo a passo prático e validado.',
+        badge: '🚨 VAGAS LIMITADAS PARA O DESAFIO',
+        title1: 'Por que algumas pessoas prosperam sem esforço',
+        title2: 'enquanto você continua travada?',
+        tagline: 'O Segredo Revelado',
+        description: 'Descubra como limpar o "lixo mental" que está sabotando seu sucesso financeiro e amoroso. Pare de tentar forçar a Lei da Atração e comece a manifestar no automático.',
         price: {
           main: 'R$ 47,90',
-          oldPrice: 'R$ 95,80',
-          brl: { main: 'R$ 47,90', oldPrice: 'R$ 95,80' },
-          note: 'Acesso Imediato • +500 Alunas'
+          oldPrice: 'R$ 297,00',
+          brl: { main: 'R$ 47,90', oldPrice: 'R$ 297,00' },
+          note: 'Oferta Especial (84% de Desconto)'
         },
         features: [
-          'Download Imediato (PDF)',
-          'Bônus: Desafio 30 Dias',
-          '7 Dias de Garantia',
-          'Acesso Vitalício'
+          'Passaporte Completo: Método Destrave',
+          'PRESENTE 1: Desafio 30 Dias em Vídeo',
+          'PRESENTE 2: SOS Crise Vibracional',
+          'Garantia Incondicional de 7 Dias'
         ],
-        cta: 'QUERO DESTRAVAR AGORA',
+        cta: 'QUERO DESTRAVAR MINHA VIDA AGORA',
         image: card1,
-        imageAlt: 'Capa do Livro Destrave'
+        imageAlt: 'Kit Completo Destrave'
       }
     ],
     ctaLink: '#diagnosis',
@@ -48,124 +48,146 @@ export const baseContent = {
   },
   sales: {
     templates: {
-      title: 'Me Siga no Instagram',
-      text: 'Acompanhe dicas diárias sobre manifestação, energia e o método Destrave.',
-      buttonLabel: 'Ver Instagram da Daniela',
+      title: 'Não acredite apenas em mim',
+      text: 'Veja nos meus stories os bastidores de como centenas de mulheres estão hackeando a realidade todos os dias com o Método Destrave.',
+      buttonLabel: 'Espiar o Instagram da Daniela',
       buttonHref: 'https://www.instagram.com/dani_mairaferrenha/'
     },
     problem: {
-      title: 'Você sente que sua vida está Travada?',
+      title: 'Você está exausta de nadar contra a maré?',
       bullets: [
-        'A maioria das pessoas conhece a teoria da Lei da Atração, mas falha na aplicação.',
-        'Sente que seus esforços não trazem os resultados desejados.',
-        'Vive em um ciclo de escassez e pensamentos limitantes.',
-        'O "Destrave" não é sobre mágica, é sobre psicologia, foco e energia.'
+        'Já fez o "quadro dos sonhos", repetiu afirmações positivas e sentiu que foi tudo uma grande perda de tempo?',
+        'Vê pessoas menos qualificadas que você ganhando mais dinheiro e vivendo vidas incríveis?',
+        'Acorda com ansiedade, sentindo que existe uma parede de vidro invisível bloqueando sua felicidade?',
+        'A CULPA NÃO É SUA. O mercado de autoajuda te ensinou a acelerar o carro, mas esqueceu de avisar que o freio de mão estava puxado.'
       ]
     },
     solution: {
-      title: 'O Poder do Invisível',
+      title: 'O Freio de Mão Invisível',
       paragraphs: [
-        'Aprenda que semelhante atrai semelhante. Entenda como seus pensamentos moldam sua realidade física.',
-        'Recalibre sua Frequência: Pare de emitir sinais de escassez. Aprenda a sintonizar na frequência exata dos seus sonhos.',
-        'Elimine Bloqueios: Identifique e destrua as crenças limitantes que sabotam seu sucesso antes mesmo de você começar.'
+        'A verdade nua e crua é que 95% da sua vida é controlada pelo seu subconsciente. Se você tem "crenças raiz" de escassez instaladas na sua infância, não importa o quanto você trabalhe, você sempre voltará à estaca zero.',
+        'O Método Destrave não é "pensamento positivo". É um protocolo prático de limpeza profunda. Nós vamos desinstalar o software da escassez e instalar o drive da abundância.',
+        'Quando você solta o freio de mão, a manifestação não exige esforço. Ela se torna o seu estado natural.'
       ]
     },
     product: {
-      title: 'O que você vai aprender no Destrave',
+      title: 'O Arsenal Completo para Mudar de Vida',
       items: [
         {
-          icon: '1',
-          title: 'Os Fundamentos da Frequência',
-          description: 'Entenda como a energia funciona e como você se conecta com o universo.'
+          icon: '💎',
+          title: 'Diagnóstico das Crenças Raiz',
+          description: 'O raio-x exato para descobrir qual crença silenciosa está drenando sua conta bancária.'
         },
         {
-          icon: '2',
-          title: 'A Fórmula da Criação',
-          description: 'Peça, Acredite e Receba: o mapa exato para manifestar seus desejos.'
+          icon: '⚡',
+          title: 'Protocolo de Limpeza Profunda',
+          description: 'Exercícios práticos para deletar a autossabotagem e a síndrome da impostora.'
         },
         {
-          icon: '3',
-          title: 'Ferramentas de Potencialização',
-          description: 'Técnicas práticas para acelerar seus resultados dia após dia.'
+          icon: '🎯',
+          title: 'A Engenharia do Pedido Perfeito',
+          description: 'Como se comunicar com o universo de uma forma que ele seja OBRIGADO a te responder.'
         },
         {
-          icon: '4',
-          title: 'Bloqueios e Como Superá-los',
-          description: 'Identifique o que te trava e limpe o caminho para a abundância.'
+          icon: '🚀',
+          title: 'Blindagem Energética',
+          description: 'Como parar de absorver a negatividade e a inveja das pessoas ao seu redor.'
         },
         {
-          icon: '★',
-          title: 'BÔNUS EXCLUSIVO',
-          description: 'Desafio de 30 Dias de Prática para transformar sua rotina e vibração.'
+          icon: '🎁',
+          title: 'O Acelerador de 30 Dias',
+          description: 'Acompanhamento em vídeo para garantir que a mudança seja permanente e definitiva.'
         }
       ],
-      note: 'Conteúdo prático e validado para aplicação imediata.'
+      note: 'Um investimento ridículo comparado ao dinheiro que você está perdendo por estar travada.'
     },
     benefits: {
-      title: 'Por que começar hoje?',
+      title: 'A dor de ficar onde está é maior do que o preço da mudança',
       bullets: [
-        'Método passo a passo e fácil de seguir',
-        'Alinhamento vibracional consciente e duradouro',
-        'Acesso imediato ao material após a compra',
-        'Garantia incondicional de 7 dias',
-        'Oferta especial por tempo limitado'
+        'Volte a ter paz mental e clareza sobre o futuro',
+        'Atraia oportunidades financeiras que pareciam impossíveis',
+        'Elimine a ansiedade e o ciclo de preocupação com contas',
+        'Torne-se magnética para relacionamentos saudáveis',
+        'Recupere o controle absoluto sobre a sua realidade'
       ]
     },
     primaryCta: {
       id: 'cta-primary',
-      title: 'Comece sua transformação hoje',
-      text: 'Ao garantir sua cópia agora, você recebe acesso vitalício ao E-book completo + Acesso aos vídeos do Desafio de 30 Dias.',
-      buttonLabel: 'COMPRAR AGORA',
+      title: 'Qual vai ser a sua escolha hoje?',
+      text: 'Você pode fechar esta página e continuar exatamente onde está, frustrada e estagnada. Ou pode investir o valor de uma pizza para dar o primeiro passo rumo à vida que você merece.',
+      buttonLabel: 'SIM! EU QUERO A MINHA NOVA REALIDADE',
       buttonHref: 'https://danielaferrenhamove.com.br/finalizar.php',
-      note: 'Pagamento único e seguro via Checkout.'
+      note: 'Pagamento 100% Seguro. Acesso enviado para o seu e-mail em 2 minutos.'
     },
     testimonials: {
-      title: 'Sobre a Autora: Daniela Ferrenha',
+      title: 'Elas soltaram o freio de mão...',
       items: [
         {
-          quote: '"O universo está pronto. E você?"',
-          author: 'Daniela Ferrenha',
-          description: 'Especialista em desenvolvimento pessoal e energética, Daniela Ferrenha compilou neste livro não apenas teorias, mas um mapa prático. Sua missão é ajudar pessoas a saírem do campo das ideias e entrarem no campo da realização através do alinhamento vibracional consciente.',
-          avatar: daniela
+          quote: '"Eu achei que era mais um livro bobo de autoajuda. Me enganei feio. Os exercícios do módulo 2 me fizeram chorar, mas tiraram um peso de 10 toneladas das minhas costas. Arrumei um emprego ganhando o dobro em menos de um mês."',
+          author: 'Mariana S.',
+          description: 'Aluna da Turma 4',
+          avatar: 'https://i.pravatar.cc/150?u=mariana'
+        },
+        {
+          quote: '"O Desafio de 30 dias em vídeo vale ouro. A energia da Daniela é contagiante. Hoje eu não corro mais atrás do dinheiro, as oportunidades vêm até mim."',
+          author: 'Carla F.',
+          description: 'Empreendedora',
+          avatar: 'https://i.pravatar.cc/150?u=carla'
         }
       ]
     },
+    guarantee: {
+      title: 'O Risco é 100% Meu (Garantia de Arrependimento)',
+      text: 'Se você baixar o Método Destrave, ler os materiais, assistir aos vídeos e achar que isso não funciona para você, me mande um único e-mail dentro de 7 dias. Eu devolvo cada centavo do seu dinheiro. Sem perguntas. Continuaremos amigas. Você não tem absolutamente nada a perder.'
+    },
+    bonuses: {
+      title: 'Se você agir AGORA, leva de presente (De R$ 141 por R$ 0)',
+      bullets: [
+        { icon: 'video', text: '🎁 DESAFIO 30 DIAS EM VÍDEO: 30 aulas práticas para manter sua vibração no topo. (Vendido separadamente por R$ 97,00 - Hoje: GRÁTIS)' },
+        { icon: 'file', text: '🎁 CHECKLIST DIÁRIO DE MANIFESTAÇÃO: A rotina de 5 minutos das pessoas altamente prósperas. (Vendido separadamente por R$ 27,00 - Hoje: GRÁTIS)' },
+        { icon: 'compass', text: '🎁 S.O.S. CRISE VIBRACIONAL: Áudio de emergência para te tirar do buraco do medo e da ansiedade em minutos. (Vendido separadamente por R$ 17,00 - Hoje: GRÁTIS)' }
+      ]
+    },
+    urgency: {
+      title: '⏳ O Lote Promocional Está Esgotando',
+      text: 'Estou oferecendo o Método Destrave + Todos os Bônus por apenas R$ 47,90 para colher mais depoimentos. Assim que a meta for atingida, o preço retornará automaticamente para o valor normal de R$ 297,00. Não garanto esse preço amanhã.'
+    },
     faq: {
       id: 'faq',
-      title: 'Perguntas Frequentes',
+      title: 'Dúvidas Frequentes antes de você tomar sua decisão',
       items: [
         {
-          question: 'Como recebo o conteúdo?',
-          answer: 'O acesso é imediato. Após a confirmação do pagamento, você receberá o link para download do PDF e acesso aos bônus no seu e-mail.'
+          question: 'Isso é religião ou espiritismo?',
+          answer: 'De forma alguma. O Método Destrave é baseado em princípios de física quântica, neurociência e psicologia comportamental. É prático e focado em resultados reais.'
         },
         {
-          question: 'O pagamento é seguro?',
-          answer: 'Sim, utilizamos as plataformas de pagamento mais seguras do mercado com criptografia de ponta a ponta.'
+          question: 'E se eu não tiver tempo para estudar?',
+          answer: 'O material foi feito para quem não tem tempo a perder. A leitura é fluida e os vídeos do desafio duram de 5 a 10 minutos por dia.'
         },
         {
-          question: 'Tenho garantia?',
-          answer: 'Sim! Você tem 7 dias de garantia incondicional. Se não gostar do conteúdo, devolvemos seu dinheiro.'
+          question: 'Como eu acesso o material?',
+          answer: 'Logo após o pagamento (que é processado em ambiente blindado), você recebe no seu e-mail os dados de acesso para baixar o E-book e entrar na área de membros dos bônus.'
         }
       ]
     },
     support: {
-      title: 'Suporte ao Aluno',
-      description: 'Dúvidas sobre o método ou acesso? Entre em contato:',
+      title: 'Ainda precisa de ajuda?',
+      description: 'Nosso time de sucesso do cliente está pronto para te ajudar.',
       email: 'suporte@danielaferrenha.com.br',
-      responseTime: '© 2026 Daniela Ferrenha. Todos os direitos reservados.'
+      responseTime: 'Atendimento humanizado de Seg a Sex.'
     },
     secondaryCta: {
       id: 'cta-secondary',
-      title: 'Não perca esta oportunidade',
-      text: 'Garanta sua vaga agora mesmo pelo preço promocional.',
-      buttonLabel: 'COMPRAR AGORA',
+      title: 'Esta é a sua última chance de pagar apenas R$ 47,90',
+      text: 'O cronômetro não para. Garanta seu acesso vitalício agora.',
+      buttonLabel: 'GARANTIR MEU DESCONTO E BÔNUS',
       buttonHref: 'https://danielaferrenhamove.com.br/finalizar.php'
     },
     finalCta: {
       id: 'cta-final',
-      title: 'Pronta para o próximo nível?',
-      text: 'Clique abaixo e inicie sua jornada.',
-      buttonLabel: 'QUERO COMEÇAR',
+      title: 'O Universo Gosta de Velocidade',
+      text: 'Pessoas de sucesso tomam decisões rápidas quando encontram a solução. Qual grupo você quer fazer parte?',
+      buttonLabel: 'EU ESCOLHO DESTRAVAR HOJE',
       buttonHref: 'https://danielaferrenhamove.com.br/finalizar.php'
     }
   },

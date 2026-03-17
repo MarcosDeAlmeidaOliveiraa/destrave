@@ -5,11 +5,19 @@ import daniela from '../images/daniela.png';
 export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
   const [step, setStep] = useState(0);
   const [name, setName] = useState('');
+  const [answers, setAnswers] = useState([]);
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef(null);
   const initialized = useRef(false);
+
+  const getProfile = () => {
+    const total = answers.reduce((a, b) => a + b, 0);
+    if (total <= 8) return 'escassez';
+    if (total <= 12) return 'buscador';
+    return 'manifestador';
+  };
 
   const quizSteps = [
     {
@@ -24,7 +32,7 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
         `1 - Pelos meus problemas e limitações.
 2 - Pelos meus papéis sociais (trabalho, família, etc.).
 3 - Pelos meus sonhos e o que quero conquistar.
-4 - Como um ser infinito vivendo temporariamente uma experiência humana.`,
+4 - Como um ser infinito vivendo temporariamente uma experiencial humana.`,
       ],
       type: 'choice',
     },
@@ -65,9 +73,18 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
       id: 'result',
       questions: [
         'Diagnóstico Pronto 🚀',
-        'Descubra o padrão que está bloqueando sua abundância.',
-        (userName) => `${userName}, suas respostas indicam que você está vivendo o que Jung chamava de 'compulsão ao destino' — a repetição inconsciente de padrões. Você tenta mudar na força, mas seu subconsciente puxa você para trás.`,
-        'Você está a apenas 3 passos de mudar isso. Apresento o Destrave. Não é um curso, é um protocolo de 30 dias para renovar sua frequência.',
+        (userName, userAnswers) => {
+          const total = userAnswers.reduce((a, b) => a + b, 0);
+          if (total <= 8) {
+            return `${userName}, seu perfil é: "Prisioneira da Escassez". Suas respostas indicam que você está operando no modo sobrevivência. Seu subconsciente está programado para enxergar apenas perigos e limitações, o que trava qualquer entrada de dinheiro ou alegria. Você precisa de uma limpeza profunda de crenças raiz imediatamente.`;
+          } else if (total <= 12) {
+            return `${userName}, seu perfil é: "Buscadora Frustrada". Você já sabe que a Lei da Atração existe, mas sente que ela "funciona para os outros e não para você". Isso acontece porque há um desalinhamento entre o que você pede e o que você sente. Você tem a teoria, mas falta o método prático para destravar a sua frequência.`;
+          } else {
+            return `${userName}, seu perfil é: "Manifestadora Desalinhada". Você tem uma consciência elevada, mas ainda não viu os resultados físicos. Isso indica "micro-bloqueios de merecimento". É como se você estivesse com o rádio quase na estação certa, mas o chiado impede a música de tocar. Só falta o ajuste fino.`;
+          }
+        },
+        'O Método Destrave foi criado exatamente para resolver o seu padrão específico.',
+        'Ao garantir seu acesso agora, você recebe o E-book completo + o Desafio de 30 Dias em Vídeo de bônus.',
       ],
       type: 'final',
     },
@@ -101,7 +118,7 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
     
     for (const q of currentStep.questions) {
       await new Promise((r) => setTimeout(r, 1200));
-      const text = typeof q === 'function' ? q(name) : q;
+      const text = typeof q === 'function' ? q(name, answers) : q;
       addMessage(text, 'bot');
     }
     
@@ -130,6 +147,7 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
         addMessage('Lamento, sua resposta deve ser um número de 1 a 4 🧐', 'bot');
         setIsTyping(false);
       } else {
+        setAnswers(prev => [...prev, num]);
         const nextStep = step + 1;
         setStep(nextStep);
         sendNextQuestions(nextStep);
@@ -239,22 +257,24 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
             </button>
           </>
         ) : (
-          <div className="w-full p-4 bg-white rounded-2xl shadow-xl border border-brand-accent/20 text-center animate-in zoom-in-95 duration-300">
-              <p className="text-sm font-bold text-brand-dark mb-4 uppercase tracking-tight">🎉 Diagnóstico Concluído!</p>
+          <div className="w-full p-6 bg-white rounded-2xl shadow-luxury border-2 border-brand-accent/50 text-center animate-in zoom-in-95 duration-300">
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600">
+                <FiCheckCircle className="h-6 w-6" />
+              </div>
+              <h4 className="text-lg font-black text-brand-dark mb-2 uppercase tracking-tight">O Seu Diagnóstico Está Pronto</h4>
+              <p className="text-sm font-medium text-slate-600 mb-6">A falha não é sua, é do seu padrão subconsciente. O Método Destrave é a chave para mudar isso hoje.</p>
+              
               <a 
                 href={checkoutUrl || "#checkout"} 
                 target={checkoutUrl ? "_blank" : "_self"}
                 rel="noreferrer"
-                className="block w-full bg-brand-primary text-white font-black py-4 rounded-xl shadow-md uppercase text-sm hover:bg-brand-dark transition-colors"
+                className="block w-full bg-gold-gradient text-brand-dark font-black py-4 rounded-xl shadow-gold-glow uppercase text-sm hover:brightness-110 transition-all animate-pulse-slow"
               >
-                Quero o Destrave Agora
+                EU QUERO ACESSAR O MÉTODO DESTRAVE
               </a>
-              <button 
-                onClick={onComplete}
-                className="mt-4 text-xs font-bold text-slate-400 hover:text-brand-primary uppercase tracking-widest"
-              >
-                Voltar para o site
-              </button>
+              <p className="mt-3 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                Você será redirecionado para a página de pagamento seguro.
+              </p>
           </div>
         )}
       </div>
