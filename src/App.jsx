@@ -1,24 +1,12 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Header } from './components/Header'
 import { TopBanner } from './components/TopBanner'
-import { BottomNav } from './components/BottomNav'
 import { HomeScreen } from './screens/Home'
 import { QuizScreen } from './screens/Quiz'
 import { SalesSections } from './components/SalesSections'
 import { Footer } from './components/Footer'
-import { baseContent, languages } from './data/content'
+import { baseContent } from './data/content'
 import { FloatingActions } from './components/FloatingActions'
-import { useAutoTranslate } from './hooks/useAutoTranslate'
-
-const getInitialLang = () => {
-  if (typeof navigator === 'undefined') return 'pt';
-  const browserLang = (navigator.language || 'pt').toLowerCase();
-  const exactMatch = languages.find(l => browserLang === l.code.toLowerCase());
-  if (exactMatch) return exactMatch.code;
-  const partialMatch = languages.find(l => browserLang.startsWith(l.code.toLowerCase()));
-  if (partialMatch) return partialMatch.code;
-  return 'pt';
-};
 
 const readStorage = (key, fallback) => {
   try {
@@ -37,11 +25,10 @@ const writeStorage = (key, value) => {
 }
 
 export default function App() {
-  const [language, setLanguage] = useState(() => readStorage('language', getInitialLang()))
   const [showBanner, setShowBanner] = useState(() => readStorage('showBanner', true))
   const [currentScreen, setCurrentScreen] = useState('home') // 'home' | 'quiz'
 
-  const { content, loading } = useAutoTranslate(baseContent, language)
+  const content = baseContent
 
   useEffect(() => {
     if (currentScreen === 'quiz') {
@@ -56,11 +43,6 @@ export default function App() {
       document.body.style.height = ''
     }
   }, [currentScreen])
-
-  useEffect(() => {
-    document.documentElement.lang = language
-    writeStorage('language', language)
-  }, [language])
 
   const handleDismissBanner = () => {
     setShowBanner(false)

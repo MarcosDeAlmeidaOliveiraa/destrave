@@ -1,15 +1,6 @@
 import card1 from '../images/card1.png'
 import daniela from '../images/daniela.png'
 
-export const languages = [
-  { code: 'pt', label: 'Português', flag: 'BR' },
-  { code: 'en', label: 'English', flag: 'GB' },
-  { code: 'es', label: 'Español', flag: 'ES' },
-  { code: 'fr', label: 'Français', flag: 'FR' },
-  { code: 'it', label: 'Italiano', flag: 'IT' },
-  { code: 'zh-CN', label: '中文', flag: 'CN' }
-]
-
 export const baseContent = {
   nav: {
     home: 'Início',
