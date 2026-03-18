@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { FiCheckCircle, FiLock, FiShield, FiCreditCard, FiCopy, FiDownload, FiPlayCircle } from 'react-icons/fi';
 import { FaPix } from 'react-icons/fa6';
 import InputMask from 'react-input-mask';
+import ebookCover from '../images/card1.png';
 
 export function CheckoutScreen({ content, onBack, onSuccess }) {
   const [paymentMethod, setPaymentMethod] = useState('pix'); // 'pix' | 'credit_card'
@@ -272,6 +273,11 @@ export function CheckoutScreen({ content, onBack, onSuccess }) {
                   <FiCheckCircle className="text-6xl" />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 uppercase italic">Acesso Liberado!</h2>
+                
+                <div className="mb-8 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                  <img src={ebookCover} alt="Ebook Cover" className="w-32 h-auto mx-auto drop-shadow-2xl rounded-lg" />
+                </div>
+
                 <p className="text-slate-600 font-medium mb-10 max-w-sm mx-auto leading-relaxed">
                   Seu pagamento foi confirmado com sucesso. Sua Área de Membros com o eBook e as aulas já está pronta!
                 </p>
@@ -353,7 +359,7 @@ export function CheckoutScreen({ content, onBack, onSuccess }) {
           <h3 className="text-sm font-bold uppercase tracking-widest text-brand-accent mb-6">Resumo do Pedido</h3>
           
           <div className="flex items-center gap-4 border-b border-white/10 pb-6 mb-6">
-            <img src={content.hero.slides[0].image} alt="Destrave" className="w-20 h-auto object-contain drop-shadow-lg" />
+            <img src={ebookCover} alt="Destrave" className="w-20 h-auto object-contain drop-shadow-lg hover:scale-110 transition-transform" />
             <div>
               <h4 className="font-black text-lg leading-tight">Método Destrave Completo</h4>
               <p className="text-xs text-white/70 mt-1">Acesso Imediato + Todos os Bônus</p>
