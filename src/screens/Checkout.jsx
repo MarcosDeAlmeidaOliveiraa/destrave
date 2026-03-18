@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FiCheckCircle, FiLock, FiShield, FiCreditCard, FiCopy, FiDownload } from 'react-icons/fi';
+import { FiCheckCircle, FiLock, FiShield, FiCreditCard, FiCopy, FiDownload, FiPlayCircle } from 'react-icons/fi';
 import { FaPix } from 'react-icons/fa6';
 import InputMask from 'react-input-mask';
 
