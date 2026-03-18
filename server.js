@@ -3,7 +3,7 @@ import cors from 'cors';
 import { MercadoPagoConfig, Payment } from 'mercadopago';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import { dirname, join, resolve } from 'path';
 import nodemailer from 'nodemailer';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -14,13 +14,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 1. SERVIR FRONTEND: Configura o Express para entregar os arquivos da pasta 'dist'
-app.use(express.static(join(__dirname, 'dist')));
+// Rota de teste para saber se o backend está vivo
+app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
+
+// 1. CAMINHO ABSOLUTO: Garante que a pasta dist seja encontrada no Linux/Render
+const distPath = resolve(__dirname, 'dist');
+app.use(express.static(distPath));
 
 const client = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN });
 const payment = new Payment(client);
 
-// ... (configuração do nodemailer permanece igual)
+// ... (resto do código de pagamento permanece igual)
 
 app.post('/api/create_payment', async (req, res) => {
   try {
@@ -28,7 +32,6 @@ app.post('/api/create_payment', async (req, res) => {
     const rawCpf = formData.cpf.replace(/\D/g, '');
     const email = formData.email || 'cliente@dominio.com';
 
-    // 2. URL DINÂMICA: Usa o domínio do Render automaticamente para o Webhook
     const YOUR_DOMAIN = process.env.RENDER_EXTERNAL_URL || 'http://localhost:3001';
 
     const paymentData = {
@@ -60,14 +63,15 @@ app.post('/api/create_payment', async (req, res) => {
   }
 });
 
-// ... (rota de webhook e payment_status permanecem iguais)
+// WEBHOOK e PAYMENT_STATUS aqui...
 
-// 3. ROTA CORINGA: Garante que o React controle as rotas
+// 2. ROTA CORINGA: Serve o index.html para qualquer rota não mapeada (React Router)
 app.get('*', (req, res) => {
-  res.sendFile(join(__dirname, 'dist', 'index.html'));
+  res.sendFile(join(distPath, 'index.html'));
 });
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`Serving static files from: ${distPath}`);
 });
