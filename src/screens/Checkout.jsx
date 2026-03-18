@@ -33,11 +33,17 @@ export function CheckoutScreen({ content, onBack, onSuccess }) {
       
       interval = setInterval(async () => {
         try {
-          const response = await fetch(`/api/payment_status/${pixData.id}`);
+          // Adicionamos um timestamp para evitar cache no iPhone/Safari
+          const response = await fetch(`/api/payment_status/${pixData.id}?t=${Date.now()}`, {
+            headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+          });
+          
           if (!response.ok) throw new Error('Servidor fora do ar');
+          
           const data = await response.json();
-          console.log('Status do Pagamento:', data.status);
-          if (data.status === 'approved') {
+          console.log('Status do Pagamento:', data?.status);
+          
+          if (data && data.status === 'approved') {
             setPaymentStatus('approved');
             window.removeEventListener('beforeunload', handleBeforeUnload);
             clearInterval(interval);
