@@ -264,14 +264,18 @@ export function DiagnosisQuiz({ checkoutUrl, onComplete }) {
               <h4 className="text-lg font-black text-brand-dark mb-2 uppercase tracking-tight">O Seu Diagnóstico Está Pronto</h4>
               <p className="text-sm font-medium text-slate-600 mb-6">A falha não é sua, é do seu padrão subconsciente. O Método Destrave é a chave para mudar isso hoje.</p>
               
-              <a 
-                href={checkoutUrl || "#checkout"} 
-                target={checkoutUrl ? "_blank" : "_self"}
-                rel="noreferrer"
+              <button 
+                onClick={() => {
+                  if (checkoutUrl && checkoutUrl.startsWith('http')) {
+                    window.open(checkoutUrl, '_blank');
+                  } else if (onComplete) {
+                    onComplete();
+                  }
+                }}
                 className="block w-full bg-gold-gradient text-brand-dark font-black py-4 rounded-xl shadow-gold-glow uppercase text-sm hover:brightness-110 transition-all animate-pulse-slow"
               >
                 EU QUERO ACESSAR O MÉTODO DESTRAVE
-              </a>
+              </button>
               <p className="mt-3 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                 Você será redirecionado para a página de pagamento seguro.
               </p>

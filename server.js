@@ -63,7 +63,38 @@ app.post('/api/create_payment', async (req, res) => {
   }
 });
 
-// WEBHOOK e PAYMENT_STATUS aqui...
+// WEBHOOK: Recebe as notificações do Mercado Pago
+app.post('/api/webhook', async (req, res) => {
+  const { action, data, type } = req.body;
+  if (type === 'payment' || action === 'payment.updated') {
+    const paymentId = data?.id || req.query?.['data.id'];
+    try {
+      const paymentInfo = await payment.get({ id: paymentId });
+      if (paymentInfo.status === 'approved') {
+        console.log(`PAGAMENTO APROVADO: ${paymentInfo.payer.email}`);
+        // Aqui você pode adicionar a lógica de envio de e-mail se desejar
+      }
+    } catch (error) {
+      console.error('Erro no Webhook:', error.message);
+    }
+  }
+  res.sendStatus(201);
+});
+
+// CONSULTA STATUS: Rota que o seu site chama a cada 5 segundos
+app.get('/api/payment_status/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const paymentInfo = await payment.get({ id });
+    res.json({
+      status: paymentInfo.status,
+      status_detail: paymentInfo.status_detail
+    });
+  } catch (error) {
+    console.error('Erro ao consultar status:', error.message);
+    res.status(500).json({ error: 'Erro ao consultar status' });
+  }
+});
 
 // 2. FALLBACK PARA SPA: Qualquer rota que não for API ou arquivo estático recebe o index.html
 // Esta forma evita o erro de 'path-to-regexp' no Express 5

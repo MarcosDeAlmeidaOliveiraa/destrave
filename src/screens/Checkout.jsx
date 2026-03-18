@@ -15,26 +15,42 @@ export function CheckoutScreen({ content, onBack, onSuccess }) {
     cardNumber: '', cardName: '', cardExpiry: '', cardCvv: '', installments: '1', coupon: ''
   });
 
-  // Efeito para monitorar o pagamento PIX
+  // Efeito para monitorar o pagamento PIX e prevenir saída acidental
   useEffect(() => {
     let interval;
+    
+    // Função para avisar antes de fechar a aba
+    const handleBeforeUnload = (e) => {
+      if (pixData?.id && paymentStatus === 'pending') {
+        e.preventDefault();
+        e.returnValue = ''; // Mostra o aviso padrão do navegador
+      }
+    };
+
     if (pixData?.id && paymentStatus === 'pending') {
+      window.addEventListener('beforeunload', handleBeforeUnload);
+      
       interval = setInterval(async () => {
         try {
           const response = await fetch(`/api/payment_status/${pixData.id}`);
           if (!response.ok) throw new Error('Servidor fora do ar');
           const data = await response.json();
-          console.log('Status do Pagamento:', data.status); // LOG PARA DEBUG
+          console.log('Status do Pagamento:', data.status);
           if (data.status === 'approved') {
             setPaymentStatus('approved');
+            window.removeEventListener('beforeunload', handleBeforeUnload);
             clearInterval(interval);
           }
         } catch (error) {
           console.error('Erro de conexão com o servidor:', error);
         }
-      }, 5000); // Checa a cada 5 segundos
+      }, 5000);
     }
-    return () => clearInterval(interval);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
   }, [pixData, paymentStatus]);
 
   const handleInputChange = (e) => {
@@ -146,21 +162,21 @@ export function CheckoutScreen({ content, onBack, onSuccess }) {
                 <button 
                   type="button"
                   onClick={() => setPaymentMethod('pix')}
-                  className={`relative flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border-2 transition-all ${paymentMethod === 'pix' ? 'border-green-500 bg-green-50' : 'border-slate-200 bg-slate-50 hover:bg-slate-100'}`}
+                  className={`relative flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border-2 transition-all ${paymentMethod === 'pix' ? 'border-brand-primary bg-brand-primary/5' : 'border-slate-200 bg-slate-50 hover:bg-slate-100'}`}
                 >
-                  <FaPix className={`text-2xl ${paymentMethod === 'pix' ? 'text-green-600' : 'text-slate-400'}`} />
+                  <FaPix className={`text-2xl ${paymentMethod === 'pix' ? 'text-brand-primary' : 'text-slate-400'}`} />
                   <span className="font-bold text-sm">Pix</span>
-                  {paymentMethod === 'pix' && <span className="absolute -top-3 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Aprovação Imediata</span>}
+                  {paymentMethod === 'pix' && <span className="absolute -top-3 bg-brand-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Aprovação Imediata</span>}
                 </button>
                 
                 <button 
                   type="button"
-                  onClick={() => setPaymentMethod('credit_card')}
-                  className={`relative flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border-2 transition-all ${paymentMethod === 'credit_card' ? 'border-brand-primary bg-brand-primary/5' : 'border-slate-200 bg-slate-50 hover:bg-slate-100'}`}
+                  disabled
+                  className="relative flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border-2 border-slate-100 bg-slate-50 opacity-60 cursor-not-allowed"
                 >
-                  <FiCreditCard className={`text-2xl ${paymentMethod === 'credit_card' ? 'text-brand-primary' : 'text-slate-400'}`} />
-                  <span className="font-bold text-sm">Cartão</span>
-                  {paymentMethod === 'credit_card' && <span className="absolute -top-3 bg-brand-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Até 12x</span>}
+                  <FiCreditCard className="text-2xl text-slate-400" />
+                  <span className="font-bold text-sm text-slate-400">Cartão</span>
+                  <span className="absolute -top-3 bg-slate-400 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Em Breve</span>
                 </button>
               </div>
 
@@ -203,10 +219,10 @@ export function CheckoutScreen({ content, onBack, onSuccess }) {
 
               {/* Aviso Pix */}
               {paymentMethod === 'pix' && (
-                <div className="bg-green-50 border border-green-200 rounded-xl p-4 flex gap-3 animate-in fade-in slide-in-from-top-4 duration-300">
-                  <FiCheckCircle className="text-green-600 text-xl shrink-0 mt-0.5" />
-                  <p className="text-sm font-medium text-green-900 leading-snug">
-                    Ao clicar em comprar, você receberá o <strong>QR Code</strong> e o código <strong>Copia e Cola</strong> para realizar o pagamento. O acesso é liberado em menos de 1 minuto!
+                <div className="bg-brand-primary/5 border border-brand-primary/20 rounded-xl p-4 flex gap-3 animate-in fade-in slide-in-from-top-4 duration-300">
+                  <FiCheckCircle className="text-brand-primary text-xl shrink-0 mt-0.5" />
+                  <p className="text-sm font-medium text-slate-700 leading-snug">
+                    Ao clicar em pagar agora, você receberá o <strong>QR Code</strong> e o código <strong>Copia e Cola</strong>. O acesso é liberado em menos de 1 minuto!
                   </p>
                 </div>
               )}
@@ -229,14 +245,14 @@ export function CheckoutScreen({ content, onBack, onSuccess }) {
             <button 
               type="submit" 
               disabled={loading || paymentMethod !== 'pix'} 
-              className="w-full flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white py-5 rounded-full font-black uppercase tracking-widest text-lg shadow-[0_10px_30px_rgba(34,197,94,0.3)] transition-all hover:-translate-y-1 active:scale-95 disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-3 bg-gold-gradient hover:brightness-110 text-brand-dark py-5 rounded-full font-black uppercase tracking-widest text-lg shadow-gold-glow transition-all hover:-translate-y-1 active:scale-95 disabled:opacity-50 animate-pulse-slow"
             >
                {loading ? (
                  <span className="animate-pulse">Processando...</span>
                ) : (
                  <>
-                   <FiLock />
-                   {paymentMethod === 'pix' ? 'Gerar Pix Agora' : 'Comprar Agora'}
+                   <FiLock className="text-xl" />
+                   {paymentMethod === 'pix' ? 'Pagar Agora' : 'Comprar Agora'}
                  </>
                )}
             </button>
@@ -317,7 +333,15 @@ export function CheckoutScreen({ content, onBack, onSuccess }) {
                       <div className="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
                       <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">Aguardando Pagamento...</p>
                    </div>
-                   <p className="text-[10px] text-slate-400 max-w-[200px] mx-auto">Após o pagamento, esta tela irá atualizar automaticamente para o download.</p>
+                   
+                   <div className="mt-4 bg-amber-50 border border-amber-200 rounded-xl p-4 animate-pulse">
+                      <p className="text-[11px] text-amber-800 font-black uppercase leading-tight">
+                        ⚠️ ATENÇÃO: NÃO FECHE OU RECARREGUE ESTA PÁGINA
+                      </p>
+                      <p className="text-[10px] text-amber-700 mt-1 font-medium">
+                        O seu acesso será liberado aqui automaticamente após o pagamento.
+                      </p>
+                   </div>
                 </div>
               </>
             )}
