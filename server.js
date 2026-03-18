@@ -66,7 +66,7 @@ app.post('/api/create_payment', async (req, res) => {
 // WEBHOOK e PAYMENT_STATUS aqui...
 
 // 2. ROTA CORINGA: Serve o index.html para qualquer rota não mapeada (React Router)
-app.get('*', (req, res) => {
+app.get('(.*)', (req, res) => {
   res.sendFile(join(distPath, 'index.html'));
 });
 
