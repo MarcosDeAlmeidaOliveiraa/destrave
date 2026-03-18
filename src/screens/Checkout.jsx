@@ -21,7 +21,7 @@ export function CheckoutScreen({ content, onBack, onSuccess }) {
     if (pixData?.id && paymentStatus === 'pending') {
       interval = setInterval(async () => {
         try {
-          const response = await fetch(`http://localhost:3001/api/payment_status/${pixData.id}`);
+          const response = await fetch(`/api/payment_status/${pixData.id}`);
           if (!response.ok) throw new Error('Servidor fora do ar');
           const data = await response.json();
           console.log('Status do Pagamento:', data.status); // LOG PARA DEBUG
@@ -47,7 +47,7 @@ export function CheckoutScreen({ content, onBack, onSuccess }) {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/create_payment', {
+      const response = await fetch('/api/create_payment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
