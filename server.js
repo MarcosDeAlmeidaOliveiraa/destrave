@@ -35,8 +35,8 @@ app.post('/api/create_payment', async (req, res) => {
     const YOUR_DOMAIN = process.env.RENDER_EXTERNAL_URL || 'http://localhost:3001';
 
     const paymentData = {
-      transaction_amount: 1.00,
-      description: 'TESTE: Método Destrave Completo',
+      transaction_amount: 47.90,
+      description: 'Método Destrave Completo',
       payment_method_id: paymentMethod === 'pix' ? 'pix' : 'master',
       payer: {
         email: email,

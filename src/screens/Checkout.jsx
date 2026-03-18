@@ -393,7 +393,7 @@ export function CheckoutScreen({ content, onBack, onSuccess }) {
             <div className="flex justify-between items-center mt-4">
               <span className="text-lg font-bold">Total a Pagar</span>
               <div className="text-right">
-                <span className="text-3xl font-black text-white">R$ 1,00</span>
+                <span className="text-3xl font-black text-white">R$ 47,90</span>
                 {paymentMethod === 'credit_card' && <p className="text-[10px] text-white/60">Ou em até 5x no cartão</p>}
               </div>
             </div>

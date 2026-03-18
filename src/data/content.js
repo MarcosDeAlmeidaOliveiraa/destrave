@@ -18,9 +18,9 @@ export const baseContent = {
         tagline: 'O Segredo Revelado',
         description: 'Chega de tentar "pensar positivo" e não ver nada mudar. Existe uma sujeira silenciosa no seu subconsciente bloqueando a sua vida. Aprenda a limpar isso hoje e veja os resultados aparecerem nesta mesma semana.',
         price: {
-          main: 'R$ 1,00',
+          main: 'R$ 47,90',
           oldPrice: 'R$ 297,00',
-          brl: { main: 'R$ 1,00', oldPrice: 'R$ 297,00' },
+          brl: { main: 'R$ 47,90', oldPrice: 'R$ 297,00' },
           note: 'Oferta Especial (84% de Desconto)'
         },
         features: [
@@ -152,7 +152,7 @@ export const baseContent = {
     },
     urgency: {
       title: '⏳ O Lote Promocional Está Esgotando',
-      text: 'Estou oferecendo o Método Destrave + Todos os Bônus por apenas R$ 1,00 para colher mais depoimentos. Assim que a meta for atingida, o preço retornará automaticamente para o valor normal de R$ 297,00. Não garanto esse preço amanhã.'
+      text: 'Estou oferecendo o Método Destrave + Todos os Bônus por apenas R$ 47,90 para colher mais depoimentos. Assim que a meta for atingida, o preço retornará automaticamente para o valor normal de R$ 297,00. Não garanto esse preço amanhã.'
     },
     faq: {
       id: 'faq',
