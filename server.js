@@ -65,10 +65,14 @@ app.post('/api/create_payment', async (req, res) => {
 
 // WEBHOOK e PAYMENT_STATUS aqui...
 
-// 2. ROTA CORINGA: Serve o index.html para qualquer rota que não seja um arquivo estático ou API
-// No Express 5, o '*' precisa de um nome, como '/:path*'
-app.get('/:path*', (req, res) => {
-  res.sendFile(join(distPath, 'index.html'));
+// 2. FALLBACK PARA SPA: Qualquer rota que não for API ou arquivo estático recebe o index.html
+// Esta forma evita o erro de 'path-to-regexp' no Express 5
+app.use((req, res, next) => {
+  if (req.method === 'GET' && !req.path.startsWith('/api/')) {
+    res.sendFile(join(distPath, 'index.html'));
+  } else {
+    next();
+  }
 });
 
 const PORT = process.env.PORT || 3001;
